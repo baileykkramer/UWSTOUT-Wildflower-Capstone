@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { ClassificationComponent } from './classification/classification.component';
+import { GlosseryComponent } from './glossery/glossery.component';
+import { GallaryComponent } from './gallary/gallary.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/classification', pathMatch: 'full' },
+  { path: 'classification', component: ClassificationComponent },
+  { path: 'glossery', component: GlosseryComponent },
+  { path: 'gallary', component: GallaryComponent }
+];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
