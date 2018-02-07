@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Newcombs Wildflower Guide';
+  homeButton(): void {
+    window.location.reload();
+  }
 }
+
