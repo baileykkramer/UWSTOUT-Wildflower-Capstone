@@ -1,0 +1,14 @@
+<div *ngIf="stage === 1">
+  <div *ngFor="let flower of flowerType">
+    <button (click)="select(flower.code)">{{ flower.type }}</button>
+  </div>
+</div>
+<div *ngIf="stage === 2">
+  <!-- fill this in -->
+</div>
+<div *ngIf="stage === 3">
+    <!-- fill this in -->
+</div>
+<div *ngIf="stage > 3">
+    <!-- next component in the searching -->
+  </div>

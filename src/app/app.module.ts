@@ -7,6 +7,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ClassificationComponent } from './classification/classification.component';
 import { GlosseryComponent } from './glossery/glossery.component';
 import { GallaryComponent } from './gallary/gallary.component';
+import { ThreeDigitComponent } from './three-digit/three-digit.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { GallaryComponent } from './gallary/gallary.component';
     AppComponent,
     ClassificationComponent,
     GlosseryComponent,
-    GallaryComponent
+    GallaryComponent,
+    ThreeDigitComponent
   ],
   imports: [
     BrowserModule,
