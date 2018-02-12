@@ -55,7 +55,6 @@ export class ThreeDigitComponent implements OnInit {
         this.finalNum += num * 100; 
         // Then bring the stage to 4 and exit
         this.stage = 4;
-        console.log(this.finalNum, this.stage);
       }
       else
       {
