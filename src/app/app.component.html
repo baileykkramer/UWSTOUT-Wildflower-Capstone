@@ -1,12 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>{{ title }}</h1>
-  <button routerLink="/classification" (click)="homeButton()">Home</button>
-  <nav>
-    <a routerLink="/classification">Classification</a>
-    <a routerLink="/glossery">Glossery</a>
-    <a routerLink="/gallary">Gallary</a>
-  </nav>
 </div>
-<router-outlet></router-outlet>
+<div style="float:left; width:100%">
+  <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Home</button>
+  <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" routerLink="/classification">Classification</a>
+          <a class="dropdown-item" routerLink="/glossery">Glossery</a>
+          <a class="dropdown-item" routerLink="/gallary">Gallary</a>
+      </div>
+  </div>
+</div>
+<div style="text-align:center">
+  <router-outlet></router-outlet>
+</div>
 
