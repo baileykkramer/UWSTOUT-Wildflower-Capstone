@@ -19,7 +19,7 @@ export class ThreeDigitComponent implements OnInit {
     { type: '6 Regular Parts', code: 6},
     { type: '7 or More Regular Parts', code: 7},
     { type: 'Parts Indistinguishable', code: 8},
-    {type: 'Goldenrod', code:9},
+    {type: 'Goldenrod (Solidago)', code:9},
     {type: 'Aster', code:9.01}
   ];
 
