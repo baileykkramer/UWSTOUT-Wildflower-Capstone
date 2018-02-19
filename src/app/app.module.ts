@@ -8,6 +8,7 @@ import { ClassificationComponent } from './classification/classification.compone
 import { GlosseryComponent } from './glossery/glossery.component';
 import { GallaryComponent } from './gallary/gallary.component';
 import { ThreeDigitComponent } from './three-digit/three-digit.component';
+import { QuestionGenerateComponent } from './question-generate/question-generate.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ThreeDigitComponent } from './three-digit/three-digit.component';
     ClassificationComponent,
     GlosseryComponent,
     GallaryComponent,
-    ThreeDigitComponent
+    ThreeDigitComponent,
+    QuestionGenerateComponent
   ],
   imports: [
     BrowserModule,
