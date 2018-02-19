@@ -9,6 +9,7 @@ import { GlosseryComponent } from './glossery/glossery.component';
 import { GallaryComponent } from './gallary/gallary.component';
 import { ThreeDigitComponent } from './three-digit/three-digit.component';
 import { HelpComponent } from './help/help.component';
+import { QuestionGenerateComponent } from './question-generate/question-generate.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HelpComponent } from './help/help.component';
     GlosseryComponent,
     GallaryComponent,
     ThreeDigitComponent,
-    HelpComponent
+    HelpComponent,
+    QuestionGenerateComponent
   ],
   imports: [
     BrowserModule,
