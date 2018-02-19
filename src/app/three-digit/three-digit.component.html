@@ -12,8 +12,10 @@
 <div *ngIf="stage === 3">
   <div *ngFor="let leaf of leafType">
     <button (click)="select(leaf.code)">{{ leaf.type }}</button>
+    <!--Call Group Code Corrections Function -->
   </div>
 </div>
 <div *ngIf="stage > 3">
     <!-- next component in the searching -->
+    <!-- <some-class [qNum]=finalNum></some-class> -->
   </div>
