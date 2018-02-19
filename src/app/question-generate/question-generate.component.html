@@ -1,0 +1,9 @@
+<div *ngFor="let question of activeQuestions">
+    <div *ngIf="question.text!==''">
+        <button (click)="select(question.id, question.type, question.result)">{{ question.text }}</button>
+    </div>
+</div>
+<!-- This should be commented out/removed in the final, as it was for local testing -->
+<div>
+    <p>{{ answer }}</p>
+</div>
