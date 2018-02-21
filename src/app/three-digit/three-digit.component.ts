@@ -64,23 +64,27 @@ export class ThreeDigitComponent implements OnInit {
       this.finalNum += num * 100; //Brings the flower type to hundreds position 
       }
     }
-    if (this.stage === 2) {
+    else if (this.stage === 2) {
       this.finalNum += num * 10; //Brings the plant type to the tens position
     }
-    if (this.stage === 3) {
+    else if (this.stage === 3) {
       this.finalNum += num; //Technically "num * 1", also sets leaf type to last digit
       this.idscan(this.finalNum);
+      this.idverity(this.finalNum);
     }
-    this.stage++;
+
+    if (this.stage != 9)
+    {this.stage++;}
     console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
   }
 
-  //This Function is designed to remove redundant three-digt code after the user has selected the various types.
+  //This Function is designed to remove redundant three-digt 
+  //code after the user has selected the various types.
   //It does not take care of codes that do not exist
   idscan(finalNum: number)
   {
 
-    if(finalNum > 200 && finalNum < 300)  //Checks the 200's (One statment containted within)
+    if(finalNum > 200 && finalNum <= 264)  //Checks the 200's (One statment containted within)
     {
       this.finalNum = 232
     }
@@ -140,5 +144,38 @@ export class ThreeDigitComponent implements OnInit {
         this.finalNum = 862
       }
     }
-   }
+  }
+
+  //This array contains a list of group codes that do not 
+  //coresspond to any group code in the book 
+  invalid = //There are 88 entries in this array
+  [
+    112, 113, 114, 121, 131, 141, 161, 163, 211, 213, 214,
+    215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225,
+    226, 227, 228, 229, 230, 231, 311, 312, 313, 314, 321,
+    323, 324, 331, 341, 343, 344, 351, 353, 354, 361, 363,
+    364, 412, 413, 414, 421, 423, 424, 431, 441, 451, 461,
+    462, 463, 512, 513, 514, 521, 531, 541, 612, 613, 614,
+    621, 631, 641, 654, 661, 664, 712, 713, 714, 721, 731, 
+    741, 751, 812, 813, 814, 821, 824, 831, 841, 854, 861] 
+
+  idverity(num: number)
+  {
+    var range = this.invalid.length
+    for(var i = 0; i < range; i++)
+    {
+      if(this.finalNum === this.invalid[i] )
+      {
+          this.stage = 9
+      }
+    }
+    
+  }
+
+  //Code for error return button (Stage 9)
+  homeButton(): void {
+    window.location.reload();
+  }
 }
+
+ 
