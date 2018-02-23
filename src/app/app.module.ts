@@ -9,6 +9,8 @@ import { GlosseryComponent } from './glossery/glossery.component';
 import { GallaryComponent } from './gallary/gallary.component';
 import { ThreeDigitComponent } from './three-digit/three-digit.component';
 import { QuestionGenerateComponent } from './question-generate/question-generate.component';
+import { PHPService } from './php-service.service';
+import { Http, HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -22,9 +24,12 @@ import { QuestionGenerateComponent } from './question-generate/question-generate
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    PHPService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
