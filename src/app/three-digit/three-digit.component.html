@@ -1,20 +1,36 @@
+<!-- Stage 1 handles the flower type of the group code
+     If stage is set to 0 none of the below code will run -->
 <div *ngIf="stage === 1">
   <div *ngFor="let flower of flowerType">
     <button (click)="select(flower.code)">{{ flower.type }}</button>
-    <!-- I think here -->
   </div>
 </div>
+<!-- Stage 2 handles the plant type of the group code -->
 <div *ngIf="stage === 2">
   <div *ngFor="let plant of plantType">
     <button (click)="select(plant.code)">{{ plant.type }}</button>
   </div>
 </div>
+<!-- Stage three handles the leaf type code. 
+     It also checks the validity of the code
+     And if the code has duplicates -->
 <div *ngIf="stage === 3">
   <div *ngFor="let leaf of leafType">
     <button (click)="select(leaf.code)">{{ leaf.type }}</button>
+    <!--Call Group Code Corrections Function -->
   </div>
 </div>
-<div *ngIf="stage > 3">
+<!-- Here the the question-generate.html is called up and this document no 
+     longer deals with three-digit.componet.ts -->
+<div *ngIf="stage > 3 && stage != 9">
     <!-- next component in the searching -->
+    <!-- <some-class [qNum]=finalNum></some-class> -->
+  
     <app-question-generate></app-question-generate>
+  
+</div>
+<!-- This is an error catch for the verity() function -->
+<div *ngIf="stage === 9">
+  <p>The code you have entered does not corresopond to any plant in our database. Please reexamine your entries and try again.</p>
+  <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return</button>
 </div>

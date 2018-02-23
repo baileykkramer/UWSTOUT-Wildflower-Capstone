@@ -8,6 +8,7 @@ import { ClassificationComponent } from './classification/classification.compone
 import { GlosseryComponent } from './glossery/glossery.component';
 import { GallaryComponent } from './gallary/gallary.component';
 import { ThreeDigitComponent } from './three-digit/three-digit.component';
+import { HelpComponent } from './help/help.component';
 import { QuestionGenerateComponent } from './question-generate/question-generate.component';
 import { PHPService } from './php-service.service';
 import { Http, HttpModule } from '@angular/http';
@@ -20,6 +21,7 @@ import { Http, HttpModule } from '@angular/http';
     GlosseryComponent,
     GallaryComponent,
     ThreeDigitComponent,
+    HelpComponent,
     QuestionGenerateComponent
   ],
   imports: [
