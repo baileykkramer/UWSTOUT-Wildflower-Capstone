@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Newcombs Wildflower Guide';
+  title = 'Wildflower Guide';
   homeButton(): void {
     window.location.reload();
   }
