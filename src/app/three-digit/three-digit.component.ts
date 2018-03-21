@@ -10,6 +10,9 @@ export class ThreeDigitComponent implements OnInit {
   stage: number;
   finalNum: number;
 
+  // Var to handle back from question-generate
+  back: boolean;
+
   flowerType = 
   [
     { type: 'Irregular Flowers', code: 1},
@@ -47,6 +50,7 @@ export class ThreeDigitComponent implements OnInit {
   ngOnInit() {
     this.stage = 1;
     this.finalNum = 0;
+    this.back = false;
   }
 
   select(num) 
@@ -176,6 +180,30 @@ export class ThreeDigitComponent implements OnInit {
   homeButton(): void {
     window.location.reload();
   }
-}
 
- 
+  // stepBack function for 3 key component
+  stepBack(): void {
+    // If first stage, just clear finalNum
+    if(this.stage === 2){
+      this.finalNum = 0;
+      this.stage--;
+      console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
+    }
+    // Remove 2nd digit for 2nd stage
+    else if(this.stage === 3){
+      this.finalNum = this.finalNum / 100;
+      this.finalNum = Math.floor(this.finalNum);
+      this.finalNum = this.finalNum * 100;
+      this.stage--;
+      console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
+    }
+    // Remove 3rd digit for 3rd stage
+    else if(this.stage === 4){
+      this.finalNum = this.finalNum / 10;
+      this.finalNum = Math.floor(this.finalNum);
+      this.finalNum = this.finalNum * 10;
+      this.stage--;
+      console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
+    }
+  }
+}

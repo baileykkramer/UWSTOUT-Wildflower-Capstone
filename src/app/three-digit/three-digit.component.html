@@ -24,10 +24,17 @@
      longer deals with three-digit.componet.ts -->
 <div *ngIf="stage > 3 && stage != 9">
     <!-- next component in the searching -->
-    <!-- <some-class [qNum]=finalNum></some-class> -->
-  
-    <app-question-generate></app-question-generate>
-  
+    <app-question-generate [qNum]=finalNum></app-question-generate>
+</div>
+<!-- Here we store the back button for stages 2 and 3-->
+<div *ngIf="stage > 1 && stage != 9">
+  <!-- back button goes here -->
+  <div *ngIf="stage > 3; else baseButton">
+    <button (click)="stepBack()">Reclassify Questions</button>
+  </div>
+  <ng-template #baseButton>
+    <button (click)="stepBack()">Back</button>
+  </ng-template>
 </div>
 <!-- This is an error catch for the verity() function -->
 <div *ngIf="stage === 9">

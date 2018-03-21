@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../question';
 import { PHPService } from '../php-service.service';
 
@@ -10,7 +10,11 @@ import { PHPService } from '../php-service.service';
 export class QuestionGenerateComponent implements OnInit {
 
   @Input() qNum: number;
+  @Output() backTo3Key: EventEmitter<any> = new EventEmitter();
   newQuestions: Question;
+  pos: number;
+  currentId: number;
+  travelBack: boolean;
 
   activeQuestions: Question[] = [
     {id: 0, text: '', type: '', result: 0},
@@ -22,7 +26,6 @@ export class QuestionGenerateComponent implements OnInit {
   ];
 
   // To be commented out local test versions
-  pos: number;
   test0: Question[] = [
     {id: 1421, text: 'Leaves whorled', type: 'A', result: 72},
     {id: 1422, text: 'Leaves 2, in the middle of the stem', type: 'A', result: 74},
@@ -42,6 +45,9 @@ export class QuestionGenerateComponent implements OnInit {
 
   // Create new screen for next set of questions
   generateButtons(qId: number): void {
+    // Update currentId to proper position
+    this.currentId = qId;
+
     // empty activeQuestions for next set of questions
     for (let i = 0; i < 6; i++) {
       this.activeQuestions[i] = {id: i, text: '', type: '', result: 0};
@@ -97,6 +103,7 @@ export class QuestionGenerateComponent implements OnInit {
   ngOnInit() {
     this.pos = 0;
     this.answer = '';
+    this.travelBack = false;
     this.generateButtons(this.qNum);
   }
 
@@ -121,5 +128,21 @@ export class QuestionGenerateComponent implements OnInit {
     }
   }
 
-
+  // This function is to process the back button appropriately
+  goBack(): void {
+    this.pos--;
+    // If pos is 0, go back to previous component
+    if(this.pos == 0){
+      // Log to show we hit this portion
+      this.travelBack = true;
+      this.backTo3Key.emit(null);
+    }
+    // Otherwise find previous questions and move pos back 1
+    else{
+      // Reduce id to the proper value
+      this.currentId = this.currentId/10;
+      this.currentId = Math.floor(this.currentId);
+      this.generateButtons(this.currentId);
+    }
+  }
 }

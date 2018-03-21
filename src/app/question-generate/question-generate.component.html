@@ -1,7 +1,12 @@
+<!-- This for loop generates the questions by looping through the array of activeQuestions, creating a button for each one with text -->
 <div *ngFor="let question of activeQuestions">
     <div *ngIf="question.text!==''">
         <button (click)="select(question.id, question.type, question.result)">{{ question.text }}</button>
     </div>
+</div>
+<!-- This is to display the back button -->
+<div>
+    <button (click)="goBack()">Redo Answer</button>
 </div>
 <!-- This should be commented out/removed in the final, as it was for local testing -->
 <div>
