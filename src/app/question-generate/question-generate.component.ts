@@ -90,8 +90,6 @@ export class QuestionGenerateComponent implements OnInit {
     for (let i = 0; i < newQuestions.length; i++){
       this.activeQuestions[i] = newQuestions[i];
     }*/
-
-
   }
 
   // Pass on resultIds for the display
@@ -123,9 +121,7 @@ export class QuestionGenerateComponent implements OnInit {
     // We shouldn't hit this, but I have it just incase
     else {
       // Deal with error here :D
-      console.log('Somehow hit a question without a answer type');
+      console.log('Somehow hit a question without an answer type');
     }
   }
-
-
 }
