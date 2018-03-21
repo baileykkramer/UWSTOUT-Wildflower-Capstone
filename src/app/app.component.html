@@ -1,19 +1,31 @@
-<div style="text-align:center">
-  <h1>{{ title }}</h1>
-</div>
-<div style="float:left; width:100%">
-  <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Home</button>
-  <button type="button" class="btn btn-primary"routerLink="/help">Help</button>
-  <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" routerLink="/classification">Classification</a>
-          <a class="dropdown-item" routerLink="/glossery">Glossary</a>
-          <a class="dropdown-item" routerLink="/resources">Resources</a>
-      </div>
+<header class="bgimage">
+  <div class="container">
+    <h1>{{ title }}</h1>
+  </div>
+</header>
+
+
+<!-- create a container for the layout --> 
+<div class="container">
+  <!-- create a second row that will hold the navigation buttons and various angular components -->
+  <div class="row">
+    <!--columns follow the format col-SIZE-SPAN -->
+    <div class="col-sm-1">
+            <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Home</button>
+            <button type="button" class="btn btn-secondary"routerLink="/help">Help</button>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLink="/classification">Classification</a>
+                    <a class="dropdown-item" routerLink="/glossery">Glossary</a>
+                    <a class="dropdown-item" routerLink="/resources">Resources</a>
+                </div>
+            </div>
+    </div>
+    <div class="col-sm-11">
+        <div style="text-align:center">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
   </div>
 </div>
-<div style="text-align:center">
-  <router-outlet></router-outlet>
-</div>
-

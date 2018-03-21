@@ -1,0 +1,12 @@
+.bgimage {
+    background-image: url('..\\app\\images\\flowerHeader.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+}
+h1 {
+    font-size: 500%;
+    text-align: center;
+    color: plum;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
