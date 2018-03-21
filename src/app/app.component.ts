@@ -7,7 +7,7 @@ import { PHPService } from './php-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Newcombs Wildflower Guide';
+  title = 'Wildflower Guide';
 
   constructor(private php: PHPService) { }
 
