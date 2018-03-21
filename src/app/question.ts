@@ -1,6 +1,7 @@
 export class Question {
-    id: number;
+    qNum: number;
+    code: number;
     text: string;
     type: string;
-    result: number;
+    resultId: number;
 }
