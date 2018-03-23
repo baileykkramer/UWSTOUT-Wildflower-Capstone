@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultsService } from './results.service';
+import { Plant } from '../plant';
 
 @Component({
   selector: 'app-results',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+  plants: Plant[];
 
-  constructor() { }
+  constructor(private results: ResultsService) { }
 
+  // getting the plants to display
   ngOnInit() {
+    this.plants = this.results.getPlants();
   }
 
 }
