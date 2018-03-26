@@ -27,6 +27,8 @@ export class QuestionGenerateComponent implements OnInit {
 
   // Create new screen for next set of questions
   generateButtons(qNum: number): void {
+    // Update currentId to match the current one
+    currentId = qNum;
 
     // retrieve all questions based on qNum
     this.php.getQuestions(qNum, this.setNum).subscribe(
