@@ -41,7 +41,6 @@ export class QuestionGenerateComponent implements OnInit {
         }
       }
     );
-    // TODO: add if case for if there is only 1 question to move directly to results
   }
 
   // when one of the buttons are clicked
@@ -68,7 +67,7 @@ export class QuestionGenerateComponent implements OnInit {
     // We shouldn't hit this, but I have it just incase
     else {
       // Deal with error here :D
-      console.log('Somehow hit a question without a answer type');
+      console.log('Somehow hit a question without an answer type');
     }
   }
 

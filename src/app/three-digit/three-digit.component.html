@@ -1,24 +1,49 @@
 <!-- Stage 1 handles the flower type of the group code
      If stage is set to 0 none of the below code will run -->
 <div *ngIf="stage === 1">
-  <div *ngFor="let flower of flowerType">
-    <button (click)="select(flower.code)">{{ flower.type }}</button>
+  <!--create panel for the question (blue header and body) -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Flower Type</h3>
+      <h5>Please select the answer that best describes your specimen</h5>
+    </div>
+    <div class="panel-body">
+      <div *ngFor="let flower of flowerType">
+        <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(flower.code)">{{ flower.type }}</button>
+      </div>
+    </div>
   </div>
 </div>
 <!-- Stage 2 handles the plant type of the group code -->
 <div *ngIf="stage === 2">
-  <div *ngFor="let plant of plantType">
-    <button (click)="select(plant.code)">{{ plant.type }}</button>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Plant Type</h3>
+      <h5>Please select the answer that best describes your specimen</h5>
+    </div>
+    <div class="panel-body">
+      <div *ngFor="let plant of plantType">
+          <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(plant.code)">{{ plant.type }}</button>
+      </div>
+    </div>
   </div>
 </div>
 <!-- Stage three handles the leaf type code. 
      It also checks the validity of the code
      And if the code has duplicates -->
 <div *ngIf="stage === 3">
-  <div *ngFor="let leaf of leafType">
-    <button (click)="select(leaf.code)">{{ leaf.type }}</button>
-    <!--Call Group Code Corrections Function -->
-  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+          <h3>Leaf Type</h3>
+          <h5>Please select the answer that best describes your specimen</h5>
+        </div>
+        <div class="panel-body">
+          <div *ngFor="let leaf of leafType">
+              <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(leaf.code)">{{ leaf.type }}</button>
+              <!--Call Group Code Corrections Function -->
+          </div>
+        </div>
+      </div>
 </div>
 <!-- Here the the question-generate.html is called up and this document no 
      longer deals with three-digit.componet.ts -->
@@ -31,6 +56,14 @@
 </div>
 <!-- This is an error catch for the verity() function -->
 <div *ngIf="stage === 9">
-  <p>The code you have entered does not corresopond to any plant in our database. Please reexamine your entries and try again.</p>
-  <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return</button>
+  <div class="panel panel-primary">
+    <div class="panel-heading"><h3>Classification Issue</h3></div>
+    <div class="panel-body">
+        <div class="alert alert-danger">
+            <p><strong>Error:</strong> The code you have entered does not corresopond to any plant in our database. Please reexamine your entries and try again.</p>
+        </div>
+        <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return</button>
+    </div>
+  </div>
+
 </div>

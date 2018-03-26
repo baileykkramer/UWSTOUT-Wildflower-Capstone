@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+.top-padding {
+    margin-top: 5px;
+}
