@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 <!-- This for loop generates the questions by looping through the array of activeQuestions, creating a button for each one with text -->
 <div *ngFor="let question of activeQuestions">
+=======
+<div *ngFor="let question of questions">
+>>>>>>> c8c49b0a5ef07b08061dee6bb32edb9fea7be96d
     <div *ngIf="question.text!==''">
-        <button (click)="select(question.id, question.type, question.result)">{{ question.text }}</button>
+        <button (click)="select(question.qNum, question.type, question.resultId)">{{ question.text }}</button>
     </div>
 </div>
 <!-- This is to display the back button -->

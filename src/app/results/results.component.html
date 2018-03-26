@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+  <!-- setting up the navbar tabs and setting the first one to be active -->
+  <li *ngFor="let plant of plants; let i = index" [class.active]="i === 0"><a data-toggle="tab" href="#{{plant.plantId}}">{{plant.comName}}</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- setting up the content for the corresponding navbar tabs and setting the first one to be active -->
+  <div *ngFor="let plant of plants; let i = index" id="{{plant.plantId}}" class="tab-pane fade" [ngClass]="i === 0 ? 'in active' : ''">
+    <!-- the information that is displayed for each plant, this can easily be changed to whatever we want to show for each plant -->
+    <h2>Common Name: {{plant.comName}}</h2>
+    <h3>Scientific Name: {{plant.sciName}}</h3>
+    <p>Description: {{plant.description}}</p>
+    <p>Page Number: {{plant.pageNumber}}</p>
+  </div>
+</div>
