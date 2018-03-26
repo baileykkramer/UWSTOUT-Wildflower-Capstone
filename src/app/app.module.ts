@@ -12,6 +12,8 @@ import { QuestionGenerateComponent } from './question-generate/question-generate
 import { PHPService } from './php-service.service';
 import { Http, HttpModule } from '@angular/http';
 import { ResourcesComponent } from './resources/resources.component';
+import { ResultsComponent } from './results/results.component';
+import { ResultsService } from './results/results.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { ResourcesComponent } from './resources/resources.component';
     ThreeDigitComponent,
     HelpComponent,
     QuestionGenerateComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ResourcesComponent } from './resources/resources.component';
     HttpModule
   ],
   providers: [
-    PHPService
+    PHPService,
+    ResultsService
   ],
   bootstrap: [AppComponent]
 })
