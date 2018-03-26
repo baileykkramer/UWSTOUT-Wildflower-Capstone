@@ -4,11 +4,14 @@
         <h5>Please select the answer that best describes your specimen</h5>
     </div>
     <div class="panel-body">
-        <div *ngFor="let question of questions">
+        <div *ngFor="let question of activeQuestions">
             <div *ngIf="question.text!==''">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(question.qNum, question.type, question.resultId)">{{ question.text }}</button>
+                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(question.id, question.type, question.result)">{{ question.text }}</button>
             </div>
         </div>
     </div>
 </div>
-    
+<!-- This should be commented out/removed in the final, as it was for local testing -->
+<div>
+    <p>{{ answer }}</p>
+</div>
