@@ -14,7 +14,7 @@ export class QuestionGenerateComponent implements OnInit {
 
   @Input() codeNum: number;
   setNum = 0;
-  questions: Question;
+  questions: Question[];
   answers: Plant[];
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
@@ -31,9 +31,14 @@ export class QuestionGenerateComponent implements OnInit {
       (data) => {
         const question = data.json();
         this.questions = question;
+        console.log(this.questions);
       }, (err) => { console.log('Error', err); },
       () => {
         this.setNum++;
+        if (this.questions.length === 1) {
+          console.log('skipping');
+          this.select(this.questions[0].qNum, this.questions[0].type, this.questions[0].resultId);
+        }
       }
     );
     // TODO: add if case for if there is only 1 question to move directly to results
