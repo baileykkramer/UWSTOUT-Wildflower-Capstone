@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Question } from '../question';
-import { Plant } from '../plant';
 import { PHPService } from '../php-service.service';
 import { Router } from '@angular/router';
+import { ResultsService } from '../results/results.service';
+import { Plant } from '../plant';
 
 @Component({
   selector: 'app-question-generate',
@@ -13,10 +14,10 @@ export class QuestionGenerateComponent implements OnInit {
 
   @Input() codeNum: number;
   setNum = 0;
-  questions: Question;
+  questions: Question[];
   answers: Plant[];
 
-  constructor(private php: PHPService, private router: Router) { }
+  constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
   ngOnInit() {
     this.generateButtons(this.codeNum);
@@ -30,29 +31,31 @@ export class QuestionGenerateComponent implements OnInit {
       (data) => {
         const question = data.json();
         this.questions = question;
+        console.log(this.questions);
       }, (err) => { console.log('Error', err); },
       () => {
         this.setNum++;
+        if (this.questions.length === 1) {
+          console.log('skipping');
+          this.select(this.questions[0].qNum, this.questions[0].type, this.questions[0].resultId);
+        }
       }
     );
-    // TODO: add if case for if there is only 1 question to move directly to results
   }
 
   // when one of the buttons are clicked
   select(qNum, type, resultId): void {
     // If selected question is an answer
     if (type === 'A') {
-      // navigate to the results page
-      this.router.navigate(['results']);
       // retrieve results based on resultId
       this.php.getPlants(resultId).subscribe(
         (data) => {
-          console.log(data);
           const answer = data.json();
           this.answers = answer;
         }, (err) => { console.log('Error', err); },
         () => {
-          console.log(this.answers);
+          this.results.setPlants(this.answers);
+          this.router.navigate(['results']);
         }
       );
     }

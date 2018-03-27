@@ -20,4 +20,9 @@ export class PHPService {
   public getPlants(id: number) {
     return this.http.post('http://144.13.22.48/WildFlowers/plant_results.php', {'id': 17601});
   }
+
+  // makes call to php endpoint to get plant results based on family name
+  public plantSearch(name: number) {
+    return this.http.post('http://144.13.22.48/WildFlowers/plant_search.php', {'name': name});
+  }
 }

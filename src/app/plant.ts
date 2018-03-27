@@ -1,4 +1,5 @@
 export class Plant {
+    plantId: number;
     resultId: number;
     sciName: string;
     comName: string;
