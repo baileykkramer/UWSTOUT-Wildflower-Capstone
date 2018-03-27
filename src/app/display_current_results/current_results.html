@@ -1,0 +1,8 @@
+<div *ngFor="let question of questions">
+    <div *ngIf="question.text!==''">
+        <button (click)="select()">{{ Display Current Results }}</button>
+    </div>
+</div>
+<div>
+    <p>{{ answer }}</p>
+</div>
