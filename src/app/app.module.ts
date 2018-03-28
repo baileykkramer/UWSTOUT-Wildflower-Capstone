@@ -14,6 +14,7 @@ import { Http, HttpModule } from '@angular/http';
 import { ResourcesComponent } from './resources/resources.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ResultsService } from './results/results.service';
     HelpComponent,
     QuestionGenerateComponent,
     ResourcesComponent,
-    ResultsComponent
+    ResultsComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
