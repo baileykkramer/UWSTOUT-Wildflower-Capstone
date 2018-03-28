@@ -1,0 +1,25 @@
+.bgimage {
+    background-image: url('..\\app\\images\\blue_flower_header.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+}
+.jumbotron {
+    background-image: url('..\\app\\images\\blue_flower_header.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+}
+h1 {
+    font-size: 500%;
+    text-align: center;
+    color: #428bca;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+.glyphicon:before {
+    margin-right: 5px;
+}
+
+.hidden-xs-inline{
+    display: inline-block !important;
+}

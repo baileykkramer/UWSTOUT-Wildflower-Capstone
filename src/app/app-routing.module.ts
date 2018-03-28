@@ -5,6 +5,7 @@ import { GlosseryComponent } from './glossery/glossery.component';
 import { HelpComponent } from './help/help.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { PlantSearchComponent } from './plant-search/plant-search.component';
+import { ResultsComponent } from './results/results.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/classification', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'glossery', component: GlosseryComponent },
   { path: 'help', component: HelpComponent},
   { path: 'resources', component: ResourcesComponent},
-  { path: 'plant_search', component: PlantSearchComponent}
+  { path: 'plant_search', component: PlantSearchComponent},
+  { path: 'results', component: ResultsComponent}
 ];
 
 @NgModule({

@@ -13,6 +13,8 @@ import { PHPService } from './php-service.service';
 import { Http, HttpModule } from '@angular/http';
 import { ResourcesComponent } from './resources/resources.component';
 import { PlantSearchComponent } from './plant-search/plant-search.component';
+import { ResultsComponent } from './results/results.component';
+import { ResultsService } from './results/results.service';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { PlantSearchComponent } from './plant-search/plant-search.component';
     HelpComponent,
     QuestionGenerateComponent,
     ResourcesComponent,
-    PlantSearchComponent
+    PlantSearchComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { PlantSearchComponent } from './plant-search/plant-search.component';
     HttpModule
   ],
   providers: [
-    PHPService
+    PHPService,
+    ResultsService
   ],
   bootstrap: [AppComponent]
 })
