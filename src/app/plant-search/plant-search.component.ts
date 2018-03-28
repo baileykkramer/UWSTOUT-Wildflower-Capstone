@@ -2,7 +2,9 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { PHPService } from '../php-service.service';
-import { RouterModule, Routes } from '@angular/router';
+import { Plant } from '../plant';
+import { ResultsService } from '../results/results.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-plant-search',
@@ -119,26 +121,30 @@ export class PlantSearchComponent implements OnInit {
     {'value': 105, 'name': 'Plantain'},
     {'value': 106, 'name': 'Witch Holly'},
   ];
+  answers: Plant[]
   selectedFamily = this.familyList[0];
 
-  //constructor(private php: PHPService, private results: ResultsService, private router: Routes) { }
+  constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
   ngOnInit() {
   }
-  //answers: Plant[]
 
-  select(family){
-    console.log(family.target.value);
-    /*this.php.plantSearch(family.target.value).subscribe(
+  select(event){
+    // console.log(family.target.value);
+    //
+    this.php.plantSearch(event.target.value).subscribe(
       (data) => {
         const answer = data.json();
         this.answers = answer;
       }, (err) => { console.log('Error', err); },
       () => {
-        this.results.setPlants(this.answers);
-        this.router.navigate(['results']);
       }
-    );*/
+    );
+  }
+
+  submit() {
+    this.results.setPlants(this.answers);
+    this.router.navigate(['results']);
   }
 
 }
