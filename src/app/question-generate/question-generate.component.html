@@ -1,14 +1,10 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3>Plant Classification</h3>
-        <h5>Please select the answer that best describes your specimen</h5>
-    </div>
-    <div class="panel-body">
-        <div *ngFor="let question of questions">
-            <div *ngIf="question.text!==''">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(question.qNum, question.type, question.resultId)">{{ question.text }}</button>
-            </div>
-        </div>
+<div *ngFor="let question of questions">
+    <div *ngIf="question.text!==''">
+        <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(question.qNum, question.type, question.resultId)">{{ question.text }}</button>
     </div>
     <button type="button" class="btn btn-info btn-block"routerLink="/current_results"><span class="glyphicon glyphicon-question-sign"></span><span class="hidden-xs">Display Current Results</span></button>
+</div>
+<!-- This is to display the back button -->
+<div *ngIf="setNum > 1">
+    <button type="button" class="btn btn-primary" (click)="goBack()">Redo Answer</button>
 </div>

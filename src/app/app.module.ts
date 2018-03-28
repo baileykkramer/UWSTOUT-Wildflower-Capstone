@@ -15,6 +15,7 @@ import { ResourcesComponent } from './resources/resources.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { CurrentResults } from './current_results/current_results.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CurrentResults } from './current_results/current_results.component';
     QuestionGenerateComponent,
     ResourcesComponent,
     ResultsComponent,
-    CurrentResults
+    CurrentResults,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
