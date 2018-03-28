@@ -5,7 +5,6 @@ import { GlosseryComponent } from './glossery/glossery.component';
 import { HelpComponent } from './help/help.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ResultsComponent } from './results/results.component';
-import { CurrentResults } from './current_results/current_results.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 
 const routes: Routes = [
@@ -15,8 +14,7 @@ const routes: Routes = [
   { path: 'glossery', component: GlosseryComponent },
   { path: 'help', component: HelpComponent},
   { path: 'resources', component: ResourcesComponent},
-  { path: 'results', component: ResultsComponent}, 
-  { path: 'current_results', component: CurrentResults}
+  { path: 'results', component: ResultsComponent}
 ];
 
 @NgModule({
@@ -24,3 +22,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 

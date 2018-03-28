@@ -14,7 +14,6 @@ import { Http, HttpModule } from '@angular/http';
 import { ResourcesComponent } from './resources/resources.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
-import { CurrentResults } from './current_results/current_results.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 
 
@@ -28,7 +27,6 @@ import { LoginFormComponent } from './login-form/login-form.component';
     QuestionGenerateComponent,
     ResourcesComponent,
     ResultsComponent,
-    CurrentResults,
     LoginFormComponent
   ],
   imports: [

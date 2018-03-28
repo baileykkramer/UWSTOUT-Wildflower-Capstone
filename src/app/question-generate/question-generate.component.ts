@@ -75,6 +75,14 @@ export class QuestionGenerateComponent implements OnInit {
     }
   }
 
+   cresult: [number];
+
+  currentresults(currentId)
+  {
+    // Take the currentId and send it to php to find the all the answers and then put the answers into an array
+
+  }
+
   // This function is to process the back button appropriately
   goBack(): void {
     this.setNum--;
