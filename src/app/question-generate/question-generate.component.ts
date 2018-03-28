@@ -21,8 +21,8 @@ export class QuestionGenerateComponent implements OnInit {
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
   ngOnInit() {
-    this.generateButtons(this.codeNum);
     this.setNum = 0;
+    this.generateButtons(this.codeNum);
   }
 
   // Create new screen for next set of questions

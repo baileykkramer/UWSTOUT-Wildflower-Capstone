@@ -205,5 +205,12 @@ export class ThreeDigitComponent implements OnInit {
       this.stage--;
       console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
     }
+    else if(this.stage === 9){
+      this.finalNum = this.finalNum / 10;
+      this.finalNum = Math.floor(this.finalNum);
+      this.finalNum = this.finalNum * 10;
+      this.stage = 3
+      console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
+    }
   }
 }
