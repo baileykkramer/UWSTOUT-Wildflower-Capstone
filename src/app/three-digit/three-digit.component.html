@@ -55,7 +55,9 @@
           <div class="alert alert-danger">
               <p><strong>Error:</strong> {{errorMsg}}</p>
           </div>
-          <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return</button>
+
+          <button type="button" class="btn btn-primary" rounterLink="/classification" (click)="stepBack()">Back</button>
+          <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return to start</button>
       </div>
       <div *ngIf="stage > 3 && stage != 9">
           <!-- next component in the searching -->
