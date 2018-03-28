@@ -10,6 +10,14 @@ export class ThreeDigitComponent implements OnInit {
   stage: number;
   finalNum: number;
 
+  instructions = 'Please select the answer that best describes your specimen';
+  errorMsg = 'The code you have entered does not corresopond to any plant in our database. Please reexamine your entries and try again.';
+  stage1Title = 'Flower Type';
+  stage2Title = 'Plant Type';
+  stage3Title = 'Leaf Type';
+  classificationTitle = 'Plant Classification';
+  errorTitle = 'Classification Issue';
+
   // Var to handle back from question-generate
   back: boolean;
 
