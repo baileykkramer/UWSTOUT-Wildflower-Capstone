@@ -15,6 +15,7 @@ import { ResourcesComponent } from './resources/resources.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { BounceComponent } from './bounce/bounce.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     QuestionGenerateComponent,
     ResourcesComponent,
     ResultsComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    BounceComponent
   ],
   imports: [
     BrowserModule,
