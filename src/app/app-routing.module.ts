@@ -5,18 +5,20 @@ import { GlosseryComponent } from './glossery/glossery.component';
 import { HelpComponent } from './help/help.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ResultsComponent } from './results/results.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/classification', pathMatch: 'full' },
+  //{ path: '', redirectTo: '/classification', pathMatch: 'full' },
+  { path: '', component: LoginFormComponent },
   { path: 'classification', component: ClassificationComponent },
   { path: 'glossery', component: GlosseryComponent },
-  { path: 'help', component: HelpComponent},
-  { path: 'resources', component: ResourcesComponent},
-  { path: 'results', component: ResultsComponent}
+  { path: 'help', component: HelpComponent },
+  { path: 'resources', component: ResourcesComponent },
+  { path: 'results', component: ResultsComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
