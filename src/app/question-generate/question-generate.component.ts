@@ -14,7 +14,7 @@ export class QuestionGenerateComponent implements OnInit {
 
   @Input() codeNum: number;
   setNum: number;
-  questions: Question;
+  questions: Question[];
   answers: Plant[];
   currentId: number;
 
@@ -35,12 +35,16 @@ export class QuestionGenerateComponent implements OnInit {
       (data) => {
         const question = data.json();
         this.questions = question;
+        console.log(this.questions);
       }, (err) => { console.log('Error', err); },
       () => {
         this.setNum++;
+        if (this.questions.length === 1) {
+          console.log('skipping');
+          this.select(this.questions[0].qNum, this.questions[0].type, this.questions[0].resultId);
+        }
       }
     );
-    // TODO: add if case for if there is only 1 question to move directly to results
   }
 
   // when one of the buttons are clicked
@@ -67,7 +71,7 @@ export class QuestionGenerateComponent implements OnInit {
     // We shouldn't hit this, but I have it just incase
     else {
       // Deal with error here :D
-      console.log('Somehow hit a question without a answer type');
+      console.log('Somehow hit a question without an answer type');
     }
   }
 
