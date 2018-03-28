@@ -1,3 +1,5 @@
+
+
 <ul class="nav nav-tabs">
   <!-- setting up the navbar tabs and setting the first one to be active -->
   <li *ngFor="let plant of plants; let i = index" [class.active]="i === 0"><a data-toggle="tab" href="#{{plant.plantId}}">{{plant.comName}}</a></li>
