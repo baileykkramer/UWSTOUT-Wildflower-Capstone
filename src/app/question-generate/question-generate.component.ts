@@ -29,6 +29,10 @@ export class QuestionGenerateComponent implements OnInit {
   generateButtons(qNum: number): void {
     // Update currentId to match the current one
     this.currentId = qNum;
+    console.log('In generate currentId');
+    console.log(this.currentId);
+    console.log('In generate setNum');
+    console.log(this.setNum);
 
     // retrieve all questions based on qNum
     this.php.getQuestions(qNum, this.setNum).subscribe(
@@ -39,6 +43,7 @@ export class QuestionGenerateComponent implements OnInit {
       }, (err) => { console.log('Error', err); },
       () => {
         this.setNum++;
+        console.log('After setNum++', this.setNum);
         if (this.questions.length === 1) {
           console.log('skipping');
           this.select(this.questions[0].qNum, this.questions[0].type, this.questions[0].resultId);
@@ -85,12 +90,17 @@ export class QuestionGenerateComponent implements OnInit {
 
   // This function is to process the back button appropriately
   goBack(): void {
-    this.setNum--;
     // If pos is 0, go back to previous component
     if(this.setNum !== 0){
+      console.log(this.currentId);
       // Reduce id to the proper value
       this.currentId = this.currentId/10;
       this.currentId = Math.floor(this.currentId);
+
+      this.setNum = this.setNum - 2;
+      console.log('Updated setNum');
+      console.log(this.setNum);
+
       this.generateButtons(this.currentId);
     }
   }
