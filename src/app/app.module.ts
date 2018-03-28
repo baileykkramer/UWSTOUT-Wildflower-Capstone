@@ -15,6 +15,7 @@ import { ResourcesComponent } from './resources/resources.component';
 import { PlantSearchComponent } from './plant-search/plant-search.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ResultsService } from './results/results.service';
     QuestionGenerateComponent,
     ResourcesComponent,
     PlantSearchComponent,
-    ResultsComponent
+    ResultsComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

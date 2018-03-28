@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../question';
 import { PHPService } from '../php-service.service';
 import { Router } from '@angular/router';
@@ -13,18 +13,26 @@ import { Plant } from '../plant';
 export class QuestionGenerateComponent implements OnInit {
 
   @Input() codeNum: number;
-  setNum = 0;
+  setNum: number;
   questions: Question[];
   answers: Plant[];
+  currentId: number;
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
   ngOnInit() {
+    this.setNum = 0;
     this.generateButtons(this.codeNum);
   }
 
   // Create new screen for next set of questions
   generateButtons(qNum: number): void {
+    // Update currentId to match the current one
+    this.currentId = qNum;
+    console.log('In generate currentId');
+    console.log(this.currentId);
+    console.log('In generate setNum');
+    console.log(this.setNum);
 
     // retrieve all questions based on qNum
     this.php.getQuestions(qNum, this.setNum).subscribe(
@@ -35,6 +43,7 @@ export class QuestionGenerateComponent implements OnInit {
       }, (err) => { console.log('Error', err); },
       () => {
         this.setNum++;
+        console.log('After setNum++', this.setNum);
         if (this.questions.length === 1) {
           console.log('skipping');
           this.select(this.questions[0].qNum, this.questions[0].type, this.questions[0].resultId);
@@ -71,5 +80,20 @@ export class QuestionGenerateComponent implements OnInit {
     }
   }
 
+  // This function is to process the back button appropriately
+  goBack(): void {
+    // If pos is 0, go back to previous component
+    if(this.setNum !== 0){
+      console.log(this.currentId);
+      // Reduce id to the proper value
+      this.currentId = this.currentId/10;
+      this.currentId = Math.floor(this.currentId);
 
+      this.setNum = this.setNum - 2;
+      console.log('Updated setNum');
+      console.log(this.setNum);
+
+      this.generateButtons(this.currentId);
+    }
+  }
 }
