@@ -17,6 +17,7 @@ export class QuestionGenerateComponent implements OnInit {
   questions: Question[];
   answers: Plant[];
   currentId: number;
+  multianswer: {type: string, resultID: number}[];
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
@@ -33,7 +34,7 @@ export class QuestionGenerateComponent implements OnInit {
     console.log(this.currentId);
     console.log('In generate setNum');
     console.log(this.setNum);
-
+    
     // retrieve all questions based on qNum
     this.php.getQuestions(qNum, this.setNum).subscribe(
       (data) => {
@@ -43,7 +44,6 @@ export class QuestionGenerateComponent implements OnInit {
       }, (err) => { console.log('Error', err); },
       () => {
         this.setNum++;
-        console.log('After setNum++', this.setNum);
         if (this.questions.length === 1) {
           console.log('skipping');
           this.select(this.questions[0].qNum, this.questions[0].type, this.questions[0].resultId);
@@ -80,27 +80,45 @@ export class QuestionGenerateComponent implements OnInit {
     }
   }
 
-   cresult: [number];
-
+  count: number = 0;
   currentresults(currentId)
   {
+    
     // Take the currentId and send it to php to find the all the answers and then put the answers into an array
+    this.php.mulitPlant(currentId).subscribe(
+      (data) => {
+        const answer = data.json();
+        this.multianswer= answer;
+      }, (err) => { console.log('Error', err); },
+      () => {
+       
+      for (this.count; 0 < this.multianswer.length; this.count++)
+      {
+        this.php.getPlants(this.multianswer[this.count].resultID).subscribe(
+          (data) => {
+            this.answers = data.json();
+          }, (err) => { console.log('Error', err); },
+          () => {
+            this.results.setPlants(this.answers);
+            this.router.navigate(['results']);
+          }
+        );
+      }
+      }
+    );
+
+
 
   }
 
   // This function is to process the back button appropriately
   goBack(): void {
+    this.setNum--;
     // If pos is 0, go back to previous component
     if(this.setNum !== 0){
-      console.log(this.currentId);
       // Reduce id to the proper value
       this.currentId = this.currentId/10;
       this.currentId = Math.floor(this.currentId);
-
-      this.setNum = this.setNum - 2;
-      console.log('Updated setNum');
-      console.log(this.setNum);
-
       this.generateButtons(this.currentId);
     }
   }

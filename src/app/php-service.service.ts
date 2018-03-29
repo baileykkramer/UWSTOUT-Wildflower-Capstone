@@ -25,4 +25,9 @@ export class PHPService {
   public plantSearch(name: number) {
     return this.http.post('http://144.13.22.48/WildFlowers/plant_search.php', {'name': name});
   }
+
+  // makes call to php endpoint to get plant results based on only partially answered questions
+  public mulitPlant(id: number) {
+    return this.http.post('http://144.13.22.48/WildFlowers/current_results.php', {'id': id});
+  }
 }
