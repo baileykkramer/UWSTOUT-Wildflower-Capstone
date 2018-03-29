@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PHPService } from './php-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,10 @@ import { PHPService } from './php-service.service';
 export class AppComponent {
   title = 'Wildflower Guide';
 
-  constructor(private php: PHPService) { }
+  constructor(private router: Router) { }
 
   homeButton(): void {
-    window.location.reload();
+    this.router.navigate(['bounce']);
   }
 }
 

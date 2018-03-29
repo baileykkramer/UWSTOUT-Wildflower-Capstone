@@ -7,7 +7,7 @@ import { Question } from './question';
 @Injectable()
 export class PHPService {
   // question table names needed for the sql call
-  sets = ['firstset', 'secondset', 'thirdset', 'fouthset', 'fifthset'];
+  sets = ['firstset', 'secondset', 'thirdset', 'fourthset', 'fifthset'];
 
   constructor(private http: Http) { }
 

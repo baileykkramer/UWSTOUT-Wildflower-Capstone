@@ -12,9 +12,11 @@ import { QuestionGenerateComponent } from './question-generate/question-generate
 import { PHPService } from './php-service.service';
 import { Http, HttpModule } from '@angular/http';
 import { ResourcesComponent } from './resources/resources.component';
+import { PlantSearchComponent } from './plant-search/plant-search.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { BounceComponent } from './bounce/bounce.component';
 
 
 @NgModule({
@@ -26,8 +28,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
     HelpComponent,
     QuestionGenerateComponent,
     ResourcesComponent,
+    PlantSearchComponent,
     ResultsComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    BounceComponent
   ],
   imports: [
     BrowserModule,

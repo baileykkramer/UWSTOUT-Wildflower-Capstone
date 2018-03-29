@@ -1,0 +1,7 @@
+<h1>Wildflower Search</h1>
+  <h2>Select the plant family you would like to view.</h2>
+  <select (change)="select($event)">
+    <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
+  </select>
+  <button type="button" (click)="submit()">Submit</button>
+
