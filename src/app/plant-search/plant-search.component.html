@@ -1,7 +1,12 @@
-<h1>Wildflower Search</h1>
-  <h2>Select the plant family you would like to view.</h2>
-  <select (change)="select($event)">
-    <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
-  </select>
-  <button type="button" (click)="submit()">Submit</button>
-
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Wildflower Search</h3>
+  </div>
+  <div class="panel-body">
+    <strong>Family Search (Select One):</strong>
+    <select (change)="select($event)">
+        <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
+    </select>
+    <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
+  </div>
+</div>

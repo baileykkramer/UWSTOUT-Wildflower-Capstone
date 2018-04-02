@@ -9,9 +9,9 @@
   <!-- setting up the content for the corresponding navbar tabs and setting the first one to be active -->
   <div *ngFor="let plant of plants; let i = index" id="{{plant.plantId}}" class="tab-pane fade" [ngClass]="i === 0 ? 'in active' : ''">
     <!-- the information that is displayed for each plant, this can easily be changed to whatever we want to show for each plant -->
-    <div class="panel panel-primary">
+    <div class="top-padding panel panel-primary">
       <div class="panel panel-heading">
-        <h3>{{plant.sciName}}</h3>
+        <strong><em><h3>{{plant.sciName}}</h3></em></strong>
       </div>
       <div class="panel panel-body text-justify">
         <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
