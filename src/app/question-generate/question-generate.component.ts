@@ -17,7 +17,7 @@ export class QuestionGenerateComponent implements OnInit {
   questions: Question[];
   answers: Plant[];
   currentId: number;
-  multianswer: {type: string, resultID: number}[];
+  multianswer: {type: string, resultId: number}[];
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
@@ -80,7 +80,6 @@ export class QuestionGenerateComponent implements OnInit {
     }
   }
 
-  count: number = 0;
   currentresults(currentId)
   {
     
@@ -88,13 +87,14 @@ export class QuestionGenerateComponent implements OnInit {
     this.php.mulitPlant(currentId).subscribe(
       (data) => {
         const answer = data.json();
-        this.multianswer= answer;
+        this.multianswer = answer;
+        console.log(this.multianswer)
       }, (err) => { console.log('Error', err); },
       () => {
        
-      for (this.count; 0 < this.multianswer.length; this.count++)
+      for (var count; count < this.multianswer.length; count++)
       {
-        this.php.getPlants(this.multianswer[this.count].resultID).subscribe(
+        this.php.getPlants(this.multianswer[count].resultId).subscribe(
           (data) => {
             this.answers = data.json();
           }, (err) => { console.log('Error', err); },
