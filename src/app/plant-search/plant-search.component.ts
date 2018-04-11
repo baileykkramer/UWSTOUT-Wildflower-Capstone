@@ -43,7 +43,7 @@ export class PlantSearchComponent implements OnInit {
     {'value': 27, 'name': 'Dogwood'},
     {'value': 28, 'name': 'Evening Primrose'},
     {'value': 29, 'name': 'False Mermaid'},
-    {'value': 30, 'name': 'Figwort<'},
+    {'value': 30, 'name': 'Figwort'},
     {'value': 31, 'name': 'Flax'},
     {'value': 32, 'name': 'Flowering Rush'},
     {'value': 33, 'name': 'Four-o\'clock'},
@@ -88,6 +88,7 @@ export class PlantSearchComponent implements OnInit {
     {'value': 72, 'name': 'Pink'},
     {'value': 73, 'name': 'Pipewort'},
     {'value': 74, 'name': 'Pitcher'},
+    {'value': 105, 'name': 'Plantain'},
     {'value': 75, 'name': 'Pokeweed'},
     {'value': 76, 'name': 'Poppy'},
     {'value': 77, 'name': 'Primrose'},
@@ -115,11 +116,10 @@ export class PlantSearchComponent implements OnInit {
     {'value': 99, 'name': 'Water Plantain'},
     {'value': 100, 'name': 'Waterleaf'},
     {'value': 101, 'name': 'White Alder'},
+    {'value': 106, 'name': 'Witch Holly'},
     {'value': 102, 'name': 'Wood Sorrel'},
     {'value': 103, 'name': 'Yam'},
     {'value': 104, 'name': 'Yellow-eyed Grass'},
-    {'value': 105, 'name': 'Plantain'},
-    {'value': 106, 'name': 'Witch Holly'},
   ];
   answers: Plant[]
   selectedFamily = this.familyList[0];

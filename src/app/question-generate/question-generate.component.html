@@ -3,9 +3,9 @@
         <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(question.qNum, question.type, question.resultId)">{{ question.text }}</button>
     </div>
 </div>
-<button class="btn btn-primary" (click)="currentresults(currentId)">Display Current Results</button>
 <!-- This is to display the back button -->
 <div *ngIf="setNum > 1">
-    <button type="button" class="btn btn-primary" (click)="goBack()">Redo Answer</button>
+    <button class="btn btn-primary btn-custom-btm-padding" (click)="goBack()">Back</button>
 </div>
+<button class="btn btn-primary" (click)="currentresults(currentId)">Display Current Results</button>
  

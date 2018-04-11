@@ -2,3 +2,20 @@
 .top-padding {
     margin-top: 5px;
 }
+
+html, body{
+    background-color: #D9EDF6;
+}
+/* tab color */
+.nav-tabs>li>a {
+    background-color: #95d6e9; 
+    border-color: #777777;
+    color:#000000;
+  }
+
+/* active tab color */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #666;
+    border: 1px solid #888888;
+  }

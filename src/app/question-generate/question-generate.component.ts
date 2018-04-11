@@ -113,12 +113,14 @@ export class QuestionGenerateComponent implements OnInit {
 
   // This function is to process the back button appropriately
   goBack(): void {
-    this.setNum--;
     // If pos is 0, go back to previous component
     if(this.setNum !== 0){
       // Reduce id to the proper value
       this.currentId = this.currentId/10;
       this.currentId = Math.floor(this.currentId);
+
+      this.setNum = this.setNum - 2;
+
       this.generateButtons(this.currentId);
     }
   }
