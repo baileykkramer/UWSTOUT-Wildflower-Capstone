@@ -16,9 +16,10 @@ export class PHPService {
     return this.http.post('http://144.13.22.48/WildFlowers/select_question.php', {'id': id, 'set': this.sets[setNum]});
   }
 
-  // makes call to php endpoint to get plant results (the id is a temp hardcode until resultIds are no longer 999999)
+  // makes call to php endpoint to get plant results
   public getPlants(id: number) {
-    return this.http.post('http://144.13.22.48/WildFlowers/plant_results.php', {'id': 17601});
+    console.log('id', id);
+    return this.http.post('http://144.13.22.48/WildFlowers/plant_results.php', {'id': id});
   }
 
   // makes call to php endpoint to get plant results based on family name
