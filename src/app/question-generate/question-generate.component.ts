@@ -17,8 +17,9 @@ export class QuestionGenerateComponent implements OnInit {
   questions: Question[];
   answers: Plant[];
   currentId: number;
- // multianswer: {type: string, resultID: number}[];
   multianswer: Question[];
+  maxCount = 0;
+
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
   ngOnInit() {
@@ -34,7 +35,7 @@ export class QuestionGenerateComponent implements OnInit {
     console.log(this.currentId);
     console.log('In generate setNum');
     console.log(this.setNum);
-    
+
     // retrieve all questions based on qNum
     this.php.getQuestions(qNum, this.setNum).subscribe(
       (data) => {
@@ -63,8 +64,7 @@ export class QuestionGenerateComponent implements OnInit {
           this.answers = answer;
         }, (err) => { console.log('Error', err); },
         () => {
-          this.results.setPlants(this.answers);
-          this.router.navigate(['results']);
+          this.goToResults();
         }
       );
     }
@@ -80,41 +80,53 @@ export class QuestionGenerateComponent implements OnInit {
     }
   }
 
-  count: number = 0;
-  currentresults(currentId)
-  {
-    // Take the currentId and send it to php to find the all the answers and then put the answers into an array
+  // Getting the list of questions in a tree
+  currentresults(currentId) {
     this.php.mulitPlant(currentId).subscribe(
       (data) => {
-        const answer= data.json();
-        this.multianswer= answer;
+        const answer = data.json();
+        this.multianswer = answer;
+        this.maxCount = this.multianswer.length;
+        console.log(this.multianswer);
       }, (err) => { console.log('Error', err); },
       () => {
-       
-      for (this.count; 0 < this.multianswer.length; this.count++)
-      {
-        console.log(' Count: ', this.count, 'multianswer', this.multianswer[this.count]);
-        this.php.getPlants(this.multianswer[this.count].resultId).subscribe(
-          (data) => {
-            this.answers = data.json();
-          }, (err) => { console.log('Error', err); },
-          () => {
-            this.results.setPlants(this.answers);
-            this.router.navigate(['results']);
-          }
-        );
-      }
+        this.currentResultsExtended(0, this.multianswer);
       }
     );
+  }
 
+  // Getting all of the plants in a certain tree and adding them to the list
+  currentResultsExtended(count: number, multiAnswer: Question[]) {
+    this.php.getPlants(this.multianswer[count].resultId).subscribe(
+      (data) => {
+        if (count === 0) {
+          this.answers = data.json();
+        } else {
+          this.answers = this.answers.concat(data.json());
+        }
+      }, (err) => { console.log('Error', err); },
+      () => {
+        if (count < this.maxCount - 1) {
+          this.currentResultsExtended(count + 1, this.multianswer);
+        } else {
+          this.goToResults();
+        }
+      }
+    );
+  }
+
+  // Go the the resutls page
+  goToResults() {
+    this.results.setPlants(this.answers);
+    this.router.navigate(['results']);
   }
 
   // This function is to process the back button appropriately
   goBack(): void {
     // If pos is 0, go back to previous component
-    if(this.setNum !== 0){
+    if (this.setNum !== 0) {
       // Reduce id to the proper value
-      this.currentId = this.currentId/10;
+      this.currentId = this.currentId / 10;
       this.currentId = Math.floor(this.currentId);
 
       this.setNum = this.setNum - 2;

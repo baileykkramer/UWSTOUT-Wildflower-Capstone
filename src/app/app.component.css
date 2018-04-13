@@ -1,11 +1,6 @@
-.bgimage {
-    background-image: url('..\\app\\images\\blue_flower_header.jpg');
-    background-position: center center;
-    background-size: cover;
-    height: 200px;
-}
+
 .jumbotron {
-    background-image: url('..\\app\\images\\blue_flower_header.jpg');
+    background-image: url('..\\assets\\img\\blue_flower_header.jpg');
     background-position: center center;
     background-size: cover;
     height: 200px;
