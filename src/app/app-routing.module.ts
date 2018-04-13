@@ -8,6 +8,7 @@ import { PlantSearchComponent } from './plant-search/plant-search.component';
 import { ResultsComponent } from './results/results.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
+import { PlantQuizComponent } from './plant-quiz/plant-quiz.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/classification', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'results', component: ResultsComponent },
   { path: 'bounce', component: BounceComponent},
   { path: 'plant_search', component: PlantSearchComponent},
+  { path: 'plant_quiz', component: PlantQuizComponent}
 ];
 
 @NgModule({
