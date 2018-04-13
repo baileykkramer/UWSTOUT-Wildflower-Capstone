@@ -17,8 +17,8 @@ export class QuestionGenerateComponent implements OnInit {
   questions: Question[];
   answers: Plant[];
   currentId: number;
-  multianswer: {type: string, resultID: number}[];
-
+ // multianswer: {type: string, resultID: number}[];
+  multianswer: Question[];
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
 
   ngOnInit() {
@@ -83,18 +83,18 @@ export class QuestionGenerateComponent implements OnInit {
   count: number = 0;
   currentresults(currentId)
   {
-    
     // Take the currentId and send it to php to find the all the answers and then put the answers into an array
     this.php.mulitPlant(currentId).subscribe(
       (data) => {
-        const answer = data.json();
+        const answer= data.json();
         this.multianswer= answer;
       }, (err) => { console.log('Error', err); },
       () => {
        
       for (this.count; 0 < this.multianswer.length; this.count++)
       {
-        this.php.getPlants(this.multianswer[this.count].resultID).subscribe(
+        console.log(' Count: ', this.count, 'multianswer', this.multianswer[this.count]);
+        this.php.getPlants(this.multianswer[this.count].resultId).subscribe(
           (data) => {
             this.answers = data.json();
           }, (err) => { console.log('Error', err); },
@@ -106,8 +106,6 @@ export class QuestionGenerateComponent implements OnInit {
       }
       }
     );
-
-
 
   }
 
