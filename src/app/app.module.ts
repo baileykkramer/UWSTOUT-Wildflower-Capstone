@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ClassificationComponent } from './classification/classification.component';
-import { GlosseryComponent } from './glossery/glossery.component';
 import { ThreeDigitComponent } from './three-digit/three-digit.component';
 import { HelpComponent } from './help/help.component';
 import { QuestionGenerateComponent } from './question-generate/question-generate.component';
@@ -17,13 +16,13 @@ import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
+import { GlossaryComponent } from './glossary/glossary.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ClassificationComponent,
-    GlosseryComponent,
     ThreeDigitComponent,
     HelpComponent,
     QuestionGenerateComponent,
@@ -31,7 +30,8 @@ import { BounceComponent } from './bounce/bounce.component';
     PlantSearchComponent,
     ResultsComponent,
     LoginFormComponent,
-    BounceComponent
+    BounceComponent,
+    GlossaryComponent
   ],
   imports: [
     BrowserModule,
