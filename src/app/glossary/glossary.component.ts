@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PHPService } from '../php-service.service';
+import { Term } from '../term';
 
 @Component({
   selector: 'app-glossary',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GlossaryComponent implements OnInit {
 
-  constructor() { }
+  terms: Term[];
+
+  constructor(private php: PHPService) {
+    console.log('constructor ran...');
+  }
 
   ngOnInit() {
+    console.log('ngOnInit ran...');
+    this.php.getGlossary().subscribe(
+      (data) => {
+        const returnedTerms = data.json();
+        this.terms = returnedTerms;
+      }, (err) => { console.log('Error', err); },
+      () => {
+        console.log(this.terms);
+      }
+    );
+
   }
 
 }
