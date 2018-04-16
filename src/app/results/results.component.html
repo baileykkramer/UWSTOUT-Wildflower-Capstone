@@ -1,24 +1,31 @@
-
-
-<ul class="nav nav-tabs">
-  <!-- setting up the navbar tabs and setting the first one to be active -->
-  <li *ngFor="let plant of plants; let i = index" [class.active]="i === 0"><a data-toggle="tab" href="#{{plant.plantId}}">{{plant.comName}}</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- setting up the content for the corresponding navbar tabs and setting the first one to be active -->
-  <div *ngFor="let plant of plants; let i = index" id="{{plant.plantId}}" class="tab-pane fade" [ngClass]="i === 0 ? 'in active' : ''">
-    <!-- the information that is displayed for each plant, this can easily be changed to whatever we want to show for each plant -->
-    <div class="top-padding panel panel-primary">
-      <div class="panel panel-heading">
-        <strong><em><h3>{{plant.sciName}}</h3></em></strong>
+<!-- Outer panel that will hold all of the result panels -->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      <h3>Results</h3>
+  </div>
+  <!-- body will contain a panel for each of the plant Results -->
+  <div class="panel-body">
+      <div class="panel-group" id="results-accordion">
+          <div *ngFor="let plant of plants">
+            <!-- create a panel for the results -->
+            <div class="panel panel-info top-padding">   
+              <!--Set up Headings-->
+              <a data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">
+                <div class="panel-heading">
+                  <h4>{{plant.comName}}</h4>
+                </div>
+              </a>
+              <!-- Set up bodys of panels-->
+              <div id="{{plant.plantId}}" class="panel-collapse collapse">
+                <div class="panel panel-body text-justify top-padding">
+                  <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
+                  <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
+                  <p><strong>Description:</strong> {{plant.description}}</p>
+                  <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="panel panel-body text-justify">
-        <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
-        <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
-        <p><strong>Description:</strong> {{plant.description}}</p>
-        <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
-      </div>
-    </div>
   </div>
 </div>
