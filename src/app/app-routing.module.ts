@@ -8,7 +8,9 @@ import { PlantSearchComponent } from './plant-search/plant-search.component';
 import { ResultsComponent } from './results/results.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
-import { Floral_structure } from './quizzes/floral_structure.component';
+import { QuizzesComponent } from './quizzes/quizzes.component';
+import { Floral_Structure } from './quizzes/floral_structure/floral_structure.component';
+import { Floral_Arrange } from './quizzes/floral_arrange/floral_arrange.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/classification', pathMatch: 'full' },
@@ -18,9 +20,11 @@ const routes: Routes = [
   { path: 'help', component: HelpComponent },
   { path: 'resources', component: ResourcesComponent },
   { path: 'results', component: ResultsComponent },
-  { path: 'bounce', component: BounceComponent},
-  { path: 'plant_search', component: PlantSearchComponent},
-  { path: 'floral_structure', component: Floral_structure},
+  { path: 'bounce', component: BounceComponent },
+  { path: 'plant_search', component: PlantSearchComponent },
+  { path: 'quizzes', component: QuizzesComponent },
+  { path: 'struct_quiz', component: Floral_Structure },
+  { path: 'arrange_quiz', component: Floral_Arrange },
 ];
 
 @NgModule({

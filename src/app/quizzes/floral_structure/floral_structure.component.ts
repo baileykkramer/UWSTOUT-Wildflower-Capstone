@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './floral_structure.component.html',
   styleUrls: ['./floral_structure.component.css']
 })
-export class Floral_structure implements OnInit {
+export class Floral_Structure implements OnInit {
 
   anwers: number[];
 
