@@ -16,6 +16,7 @@ import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
+import { PlantQuizComponent } from './plant-quiz/plant-quiz.component';
 import { GlossaryComponent } from './glossary/glossary.component';
 import { PagerService } from './results/services';
 
@@ -32,6 +33,7 @@ import { PagerService } from './results/services';
     ResultsComponent,
     LoginFormComponent,
     BounceComponent,
+    PlantQuizComponent,
     GlossaryComponent
   ],
   imports: [
