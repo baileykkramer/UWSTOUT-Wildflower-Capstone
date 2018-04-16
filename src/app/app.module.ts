@@ -17,6 +17,7 @@ import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
 import { GlossaryComponent } from './glossary/glossary.component';
+import { PagerService } from './results/services';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { GlossaryComponent } from './glossary/glossary.component';
   ],
   providers: [
     PHPService,
-    ResultsService
+    ResultsService,
+    PagerService
   ],
   bootstrap: [AppComponent]
 })
