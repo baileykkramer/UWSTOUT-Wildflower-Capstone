@@ -31,4 +31,8 @@ export class PHPService {
   public mulitPlant(id: number) {
     return this.http.post('http://144.13.22.48/WildFlowers/current_results.php', {'id': id});
   }
+
+  public getGlossary() {
+    return this.http.post('http://144.13.22.48/WildFlowers/glossary_search.php', {});
+  }
 }
