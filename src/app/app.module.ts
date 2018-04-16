@@ -17,7 +17,7 @@ import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
-
+import {Floral_structure} from './quizzes/floral_structure.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { BounceComponent } from './bounce/bounce.component';
     PlantSearchComponent,
     ResultsComponent,
     LoginFormComponent,
-    BounceComponent
+    BounceComponent,
+    Floral_structure,
   ],
   imports: [
     BrowserModule,
