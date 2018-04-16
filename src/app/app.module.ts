@@ -16,7 +16,7 @@ import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
-import { PlantQuizComponent } from './plant-quiz/plant-quiz.component';
+import { PlantQuizComponent } from './quizzes/plant-quiz/plant-quiz.component';
 import { GlossaryComponent } from './glossary/glossary.component';
 import { QuizzesComponent } from './quizzes/quizzes.component';
 import { Floral_Structure } from './quizzes/floral_structure/floral_structure.component';

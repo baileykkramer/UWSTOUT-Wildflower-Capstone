@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { PlantQuizService } from './plant-quiz.service';
-import { Plant } from '../plant'
+import { Plant } from '../../plant'
 
 @Component({
   selector: 'app-plant-quiz',
