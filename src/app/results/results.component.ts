@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ResultsService } from './results.service';
 import { Plant } from '../plant';
 import * as _ from 'underscore';
-import { PagerService } from './services/index';
+import { PagerService } from './../pagination/index';
 
 @Component({
   selector: 'app-results',
