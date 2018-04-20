@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Plant } from '../plant'
-import { PHPService } from '../php-service.service';
+import { Plant } from '../../plant'
+import { PHPService } from '../../php-service.service';
 
 @Component({
   selector: 'app-plant-quiz',
@@ -152,7 +152,7 @@ export class PlantQuizComponent implements OnInit {
       rand = dig1 + dig2 + dig3 + dig4;
       // This if statement will very based on the final plant database
       if((rand >= 675 && rand <= 783) || (rand >= 894 && rand <= 1161) || (rand >=2058 && rand <= 2505)){
-        console.log(rand)
+        // console.log(rand)
         this.ids[i] = rand;
         i++;
       }
@@ -182,24 +182,13 @@ export class PlantQuizComponent implements OnInit {
           }
         }, (err) => { console.log('Error', err); },
         () => {
-          // Redirect to it has time to pull info from database
-          // this.createQuiz();
         }
       )
     }
   }
 
-  // Create questions once database information recieved
-  createQuiz() {
-    console.log(this.plants);
-    /*
-    this.plants.forEach(function(element) {
-      console.log('Attempting to log plants', element);
-    });*/
-  }
-
   select(event, index) {
-    console.log(index);
+    // console.log(index);
     this.answers[index] = event.target.value
   }
 
