@@ -1,3 +1,26 @@
-<p>
-  plant-quiz works!
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Plant Family Quiz</h3>
+  </div>
+  <div class="panel-body">
+    <p>Below are listed {{ count }} plants with listed scientific names taken randomly from this website's list. Please select the correct family for each plant and press submit answers.</p>
+    <div *ngFor="let plant of plants; let index = index">
+      <p><strong>Question {{index + 1}}:</strong> {{ plant.sciName }}
+        <select (change)="select($event, index)">
+          <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
+        </select>
+      </p>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="submit()">Submit Answers</button>
+    <div *ngFor="let result of results; let i = index">
+      <div *ngIf="result === 1; else wrong">
+        <strong>Question {{i + 1}}:</strong> Correct!
+      </div>
+      <ng-template #wrong>
+        <div *ngIf="result === 2">
+          <strong>Question {{i + 1}}:</strong> Incorrect!
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

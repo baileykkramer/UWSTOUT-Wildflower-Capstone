@@ -21,7 +21,7 @@ import { GlossaryComponent } from './glossary/glossary.component';
 import { QuizzesComponent } from './quizzes/quizzes.component';
 import { Floral_Structure } from './quizzes/floral_structure/floral_structure.component';
 import { Floral_Arrange } from './quizzes/floral_arrange/floral_arrange.component';
-import { PagerService } from './results/services';
+import { PagerService } from './pagination';
 
 
 @NgModule({
