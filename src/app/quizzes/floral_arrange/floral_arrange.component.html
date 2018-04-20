@@ -1,1 +1,133 @@
-<p>Floral arrangement</p>
+<div class="panel panel-primary">
+    <!-- Set heading based on stage -->
+    <div class="panel-heading">
+      <div *ngIf="stage === 0">
+        <h3>{{stage1Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 1">
+        <h3>{{stage2Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 2">
+        <h3>{{stage3Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 3">
+        <h3>{{stage4Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 4">
+        <h3>{{stage5Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 5">
+        <h3>{{stage6Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 6">
+        <h3>{{stage7Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 7">
+        <h3>{{stage8Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 8">
+        <h3>{{stage9Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 9">
+        <h3>{{stage10Title}}</h3>
+        {{instructions}}
+      </div>
+      <div *ngIf="stage === 10">
+        <h3>{{stage11Title}}</h3>
+      </div>
+    </div>
+    <!-- Set up body of panel based on stage -->
+    <div class="panel-body">
+      <!-- Stage 1 handles the flower type of the group code-->
+      
+      <div *ngIf="stage === 0">
+        <div *ngFor="let quest1 of QuestionOne">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest1.code)">{{ quest1.type }}</button>
+        </div>
+      </div>
+
+      <div *ngIf="stage === 1">
+        <!-- Stage 2 handles the plant type of the group code -->
+        <div *ngFor="let quest2 of QuestionTwo">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest2.code)">{{ quest2.type }}</button>
+        </div>
+      </div>
+     
+      <div *ngIf="stage === 2">
+        <div *ngFor="let quest3 of QuestionThree">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest3.code)">{{ quest3.type }}</button>
+            
+        </div>
+      </div>
+
+      <div *ngIf="stage === 3">
+        <div *ngFor="let quest4 of QuestionFour">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest4.code)">{{ quest4.type }}</button>
+            
+        </div>
+      </div>
+
+      <div *ngIf="stage === 4">
+        <div *ngFor="let quest5 of QuestionFive">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest5.code)">{{ quest5.type }}</button>
+            
+        </div>
+      </div>
+
+      <div *ngIf="stage === 5">
+        <div *ngFor="let quest6 of QuestionSix">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest6.code)">{{ quest6.type }}</button>
+            
+        </div>
+      </div>
+
+      <div *ngIf="stage === 6">
+        <div *ngFor="let quest7 of QuestionSeven">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest7.code)">{{ quest7.type }}</button>
+            
+        </div>
+      </div>
+
+      <div *ngIf="stage === 7">
+        <div *ngFor="let quest8 of QuestionEight">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest8.code)">{{ quest8.type }}</button>
+            
+        </div>
+      </div>
+
+      <div *ngIf="stage === 8">
+        <div *ngFor="let quest9 of QuestionNine">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest9.code)">{{ quest9.type }}</button>
+            
+        </div>
+      </div>
+
+      <!-- Last question -->
+      <div *ngIf="stage === 9">
+        <div *ngFor="let quest10 of QuestionTen">
+            <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest10.code)">{{ quest10.type }}</button>
+
+        </div>
+      </div>
+
+      <!-- Display results -->
+      <div *ngIf="stage === 10">
+        <div *ngFor="let ans of Answers">
+          {{stage1Title}}
+            
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>

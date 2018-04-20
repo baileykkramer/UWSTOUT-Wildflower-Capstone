@@ -9,39 +9,106 @@ export class Floral_Structure implements OnInit {
 
   anwers: number[];
 
-  flowerType = 
+
+  QuestionOne = 
   [
-    { type: 'Irregular Flowers', code: 1},
-    { type: '2 Regular Parts', code: 2},
-    { type: '3 Regular Parts', code: 3},
-    { type: '4 Regular Parts', code: 4},
-    { type: '5 Regular Parts', code: 5},
-    { type: '6 Regular Parts', code: 6},
-    { type: '7 or More Regular Parts', code: 7},
-    { type: 'Parts Indistinguishable', code: 8},
-    {type: 'Goldenrod (Solidago)', code: 9},
-    {type: 'Aster', code: 9.01}
+    {type: 'Question:', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
   ];
 
-  plantType = 
+  QuestionTwo = 
   [
-    {type: 'No Apparent Leaves', code: 1},
-    {type: 'Basal Leaves Only', code: 2},
-    {type: 'Alternate Leaves', code: 3},
-    {type: 'Opposite or Whorled Leaves', code: 4},
-    {type: 'Shrubs', code: 5},
-    {type: 'Vines', code: 6},
+    {type: 'Question:', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
   ];
 
-  leafType = 
+  QuestionThree = 
   [
-    {type: 'No apparent Leaves', code: 1},
-    {type: 'Leaves Entire', code: 2},
-    {type: 'Leaves Toothed or Lobed', code: 3},
-    {type: 'Leaves Divided', code: 4},
+    {type: 'Question:', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
   ];
 
+  QuestionFour = 
+  [
+    {type: 'Question:', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
+  ]; 
 
+  QuestionFive = 
+  [
+    {type: 'No apparent Leaves', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
+  ];
+
+  QuestionSix = 
+  [
+    {type: 'No apparent Leaves', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
+  ];
+
+  QuestionSeven = 
+  [
+    {type: 'No apparent Leaves', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
+  ];
+
+  QuestionEight = 
+  [
+    {type: 'No apparent Leaves', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
+  ];
+
+  QuestionNine = 
+  [
+    {type: 'No apparent Leaves', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
+  ];
+
+  QuestionTen = 
+  [
+    {type: 'No apparent Leaves', code: 0},
+    { type: 'Answer', code: 1},
+    { type: 'Wrong Answer', code: 2},
+    { type: 'Wrong Answer', code: 3},
+    { type: 'Wrong Answer', code: 4},
+    { type: 'Wrong Answer', code: 5},
+  ];
 
   constructor() { }
 
