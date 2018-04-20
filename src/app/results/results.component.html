@@ -6,7 +6,7 @@
   <!-- body will contain a panel for each of the plant Results -->
   <div class="panel-body">
       <div class="panel-group" id="results-accordion">
-          <div *ngFor="let plant of plants">
+          <div *ngFor="let plant of pagedPlants">
             <!-- create a panel for the results -->
             <div class="panel panel-info top-padding">   
               <!--Set up Headings-->
@@ -28,4 +28,30 @@
           </div>
       </div>
   </div>
+  <!-- Buttons for paging -->
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+    <li>
+      <select (change)="select($event)">
+        <option value="5">5</option>
+        <option selected value="10">10</option>
+        <option value="20">20</option>
+        <option value="1500">Show All</option>
+      </select>
+    </li>
+  </ul>
 </div>
