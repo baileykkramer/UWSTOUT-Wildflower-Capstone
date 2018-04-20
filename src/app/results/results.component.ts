@@ -15,6 +15,7 @@ export class ResultsComponent implements OnInit {
   pager: any = {};
   size = 10;
   currentPage = 1;
+  overlay = false;
 
   constructor(private results: ResultsService, private pagerService: PagerService) { }
 
@@ -49,5 +50,17 @@ export class ResultsComponent implements OnInit {
 
     // get current page of items
     this.pagedPlants = this.plants.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+  /* Open */
+  openNav() {
+    this.overlay = true;
+    document.getElementById('myNav').style.display = 'block';
+    console.log('opening nav');
+  }
+
+  /* Close */
+  closeNav() {
+    this.overlay = false;
+    document.getElementById('myNav').style.display = 'none';
   }
 }
