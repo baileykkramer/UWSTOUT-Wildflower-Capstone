@@ -21,6 +21,8 @@ export class LoginFormComponent implements OnInit {
 
     if (username == 'admin' && password == 'admin') {
       this.router.navigate(['classification']);
+    } else {
+      alert("Incorrect username or password")
     }
   }
 
