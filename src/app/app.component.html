@@ -1,26 +1,53 @@
 <div class="bg-info">
-<!-- jumbotron image and text at the top of the page -->
-<div class="jumbotron">
-  <div class="container">
-    <h1>{{ title }}</h1>
+  <!-- jumbotron image and text at the top of the page -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{ title }}</h1>
+    </div>
   </div>
-</div>
 
 
-<!-- create a container for the layout --> 
-<div class="container">
-  <!-- create a second row that will hold the navigation buttons and various angular components -->
-  <div class="row">
-    <!--columns follow the format col-SIZE-SPAN -->
-    <div class="col-xs-2">
-      <!-- setup a button group for the sidebar -->
-      <div class="btn-group-vertical btn-block">
+  <!-- create a container for the layout -->
+  <div class="container">
+    <!-- create a second row that will hold the navigation buttons and various angular components -->
+    <div class="row">
+      <!--columns follow the format col-SIZE-SPAN -->
+      <div class="col-xs-2">
+        <!-- setup a button group for the sidebar -->
+        <div class="btn-group-vertical btn-block">
           <button type="button" class="btn btn-primary btn-block" (click)="homeButton()">
             <span class="glyphicon glyphicon-home"></span>
             <span class="hidden-xs">Home</span>
           </button>
-          <button type="button" class="btn btn-info btn-block"routerLink="/help"><span class="glyphicon glyphicon-question-sign"></span><span class="hidden-xs">Help</span></button>
+          <button type="button" class="btn btn-info btn-block" routerLink="/help">
+            <span class="glyphicon glyphicon-question-sign"></span>
+            <span class="hidden-xs">Help</span>
+          </button>
           <div class="dropdown">
+<<<<<<< HEAD
+            <button class="btn btn-info btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="true">
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+              <span class="hidden-xs">Menu</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" routerLink="/classification">Classification</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/glossary">Glossary</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/resources">Resources</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/plant_search">Wildflower Search</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/plant_quiz">Plant Quiz</a>
+              </li>
+            </ul>
+=======
               <button class="btn btn-info btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="hidden-xs">Menu</span></button>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" routerLink="/classification">Classification</a></li>
@@ -29,14 +56,15 @@
                   <li><a class="dropdown-item" routerLink="/plant_search">Wildflower Search</a></li>
                   <li><a class="dropdown-item" routerLink="/quizzes">Quizzes</a></li>
               </ul>
+>>>>>>> 2edc9e2371cf89b55156b39f474c2d32388320cb
           </div>
 
+        </div>
       </div>
-    </div>
-    <div class="col-xs-10">
+      <div class="col-xs-10">
         <div style="text-align:center">
           <router-outlet></router-outlet>
         </div>
+      </div>
     </div>
   </div>
-</div>

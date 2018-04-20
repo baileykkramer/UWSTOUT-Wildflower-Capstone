@@ -5,7 +5,7 @@
   <div class="panel-body">
     <strong>Family Search (Select One):</strong>
     <select (change)="select($event)">
-        <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
+      <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
     </select>
     <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
   </div>
