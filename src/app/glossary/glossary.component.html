@@ -1,18 +1,27 @@
 <div class="panel panel-primary">
-  <div class="panel panel-heading">
-    <h3>Glossary</h3>
-  </div>
-  <div class="panel panel-body">
-
-
-    <div *ngFor="let term of terms">
-      <div class="panel panel-default">
-        <div class="panel panel-heading">
-          <h4 class="list-group-item-heading">{{term.word}}</h4>
-        </div>
-        <div class="panel panel-body">
-          Definition:{{term.definition}}
-        </div>
-      </div>
+    <div class="panel panel-heading">
+        <h3>Glossary</h3>
+    </div>
+    <div class="panel panel-body">
+        <ul class="list-group">
+            <!-- This li is for the seach area -->
+            <li class="list-group-item">
+                <div class="well well-sm">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="glossarySearchInput">
+                                <span class="glyphicon glyphicon-search"></span>Search:
+                            </label>
+                            <input type="text" class="form-control" id="glossarySearchInput" placeholder="ex: umbel">
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <!-- Loop for Terms -->
+            <li class="list-group-item termItem" *ngFor="let term of terms">
+                <h4 class="list-group-item-heading text-left">{{term.word}}:</h4>
+                <p class="list-group-item-text text-left">{{term.definition}}</p>
+            </li>
+        </ul>
     </div>
   </div>
