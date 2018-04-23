@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class PlantSearchComponent implements OnInit {
   familyList = [
-    {'value': 0, 'name': 'Select a family'},
+    {'value': -1, 'name': 'Select a family'},
     {'value': 1, 'name': 'Acanthus'},
     {'value': 2, 'name': 'Amaranth'},
     {'value': 3, 'name': 'Amaryllis'},
@@ -121,7 +121,46 @@ export class PlantSearchComponent implements OnInit {
     {'value': 103, 'name': 'Yam'},
     {'value': 104, 'name': 'Yellow-eyed Grass'},
   ];
+  flowerType = 
+  [
+    { type: 'Irregular Flowers', code: 1},
+    { type: '2 Regular Parts', code: 2},
+    { type: '3 Regular Parts', code: 3},
+    { type: '4 Regular Parts', code: 4},
+    { type: '5 Regular Parts', code: 5},
+    { type: '6 Regular Parts', code: 6},
+    { type: '7 or More Regular Parts', code: 7},
+    { type: 'Parts Indistinguishable', code: 8},
+    {type: 'Goldenrod (Solidago)', code: 9},
+    {type: 'Aster', code: 9.01},
+    {type: 'Not specified', code: -1},
+  ];
+  plantType = 
+  [
+    {type: 'No Apparent Leaves', code: 1},
+    {type: 'Basal Leaves Only', code: 2},
+    {type: 'Alternate Leaves', code: 3},
+    {type: 'Opposite or Whorled Leaves', code: 4},
+    {type: 'Shrubs', code: 5},
+    {type: 'Vines', code: 6},
+    {type: 'Not specified', code: -1}
+  ];
+
+  leafType = 
+  [
+    {type: 'No apparent Leaves', code: 1},
+    {type: 'Leaves Entire', code: 2},
+    {type: 'Leaves Toothed or Lobed', code: 3},
+    {type: 'Leaves Divided', code: 4},
+    {type: 'Not specified', code: -1}
+  ];
   answers: Plant[]
+  familyName: number
+  plantNum: number
+  flowerNum: number
+  leafNum: number
+  comName: string
+  sciName: string
   selectedFamily = this.familyList[0];
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
@@ -129,10 +168,27 @@ export class PlantSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  select(event){
-    // console.log(family.target.value);
-    //
-    this.php.plantSearch(event.target.value).subscribe(
+  familyNameSelect(event){
+    this.familyName = event.target.value
+  }
+  flowerNumSelect(event){
+    this.flowerNum = event.target.value
+    console.log(this.flowerNum)
+  }
+  plantNumSelect(event){
+    this.plantNum = event.target.value
+    console.log(this.plantNum)
+  }
+  leafNumSelect(event){
+    this.leafNum = event.target.value
+    console.log(this.leafNum)
+  }
+
+  submit(sci:string, com:string) {
+    this.sciName = sci
+    this.comName = com
+    //console.log(this.sciName, this.comName)
+    this.php.plantSearch(this.sciName, this.comName, this.familyName, this.flowerNum, this.plantNum, this.leafNum).subscribe(
       (data) => {
         const answer = data.json();
         this.answers = answer;
@@ -140,9 +196,6 @@ export class PlantSearchComponent implements OnInit {
       () => {
       }
     );
-  }
-
-  submit() {
     this.results.setPlants(this.answers);
     this.router.navigate(['results']);
   }
