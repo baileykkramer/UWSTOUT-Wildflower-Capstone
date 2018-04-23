@@ -141,7 +141,7 @@ export class PlantQuizComponent implements OnInit {
     var dig2;
     var dig3;
     var dig4;
-    // Current valid spread of values: 675-783, 894-1161, 2058-2505
+    // Current valid spread of values: 675-783, 894-1161, 2058-2505, 2585-2623
 
     // Generates random valid plantIds
     while(i < this.count) {
@@ -151,7 +151,7 @@ export class PlantQuizComponent implements OnInit {
       dig4 = Math.floor(10000 * Math.random());
       rand = dig1 + dig2 + dig3 + dig4;
       // This if statement will very based on the final plant database
-      if((rand >= 675 && rand <= 783) || (rand >= 894 && rand <= 1161) || (rand >=2058 && rand <= 2505)){
+      if((rand >= 675 && rand <= 783) || (rand >= 894 && rand <= 1161) || (rand >= 2058 && rand <= 2505)){
         // console.log(rand)
         this.ids[i] = rand;
         i++;
