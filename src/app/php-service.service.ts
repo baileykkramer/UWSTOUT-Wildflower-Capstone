@@ -36,4 +36,9 @@ export class PHPService {
   public getGlossary() {
     return this.http.post('http://144.13.22.48/WildFlowers/glossary_search.php', {});
   }
+
+  // makes call to php endpoin to get plants for quiz
+  public getQuizPlants(id: number) {
+    return this.http.post('http://144.13.22.48/WildFlowers/get_quiz_plants.php', {'id': id});
+  }
 }

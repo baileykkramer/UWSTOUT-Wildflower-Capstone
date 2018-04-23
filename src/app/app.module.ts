@@ -16,7 +16,12 @@ import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results/results.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BounceComponent } from './bounce/bounce.component';
+import { PlantQuizComponent } from './quizzes/plant-quiz/plant-quiz.component';
 import { GlossaryComponent } from './glossary/glossary.component';
+import { QuizzesComponent } from './quizzes/quizzes.component';
+import { Floral_Structure } from './quizzes/floral_structure/floral_structure.component';
+import { Floral_Arrange } from './quizzes/floral_arrange/floral_arrange.component';
+import { PagerService } from './pagination';
 
 
 @NgModule({
@@ -31,7 +36,11 @@ import { GlossaryComponent } from './glossary/glossary.component';
     ResultsComponent,
     LoginFormComponent,
     BounceComponent,
-    GlossaryComponent
+    QuizzesComponent,
+    GlossaryComponent,
+    Floral_Structure,
+    Floral_Arrange,
+    PlantQuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,8 @@ import { GlossaryComponent } from './glossary/glossary.component';
   ],
   providers: [
     PHPService,
-    ResultsService
+    ResultsService,
+    PagerService
   ],
   bootstrap: [AppComponent]
 })

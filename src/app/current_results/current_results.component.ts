@@ -24,18 +24,3 @@ import { Plant } from '../plant';
     ngOnInit() {}
   
   }
-
-
-
-
- // function that calls the php to get the resultID
-
-
-
- // Converter for when resultID is returned in an array (converts to plantID)
-
-
-
- // Function to send the plantID array to the result page
-
- //<app-plant [codeNum]=finalNum></app-question-generate>
