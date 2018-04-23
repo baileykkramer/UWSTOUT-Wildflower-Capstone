@@ -44,7 +44,6 @@ export class GlossaryComponent implements OnInit {
         term.word.match(new RegExp(inputValue.concat(this.pattern), 'i'))
       )
     );
-
     // if there is nothing in the search bar show all terms
     if (inputValue === '') { this.filteredTerms = this.terms; }
   }
