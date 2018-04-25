@@ -8,11 +8,15 @@
       <div class="panel-group" id="results-accordion">
           <div *ngFor="let plant of pagedPlants">
             <!-- create a panel for the results -->
+            <button style="float:left" [ngClass]="plant.selected ? 'btn btn-primary' : 'btn btn-secondary'" (click)="plant.selected = !plant.selected">
+                <span class="glyphicon glyphicon-duplicate"></span>
+                <span class="hidden-xs">Compare</span>
+            </button>
             <div class="panel panel-info top-padding">   
               <!--Set up Headings-->
               <a data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">
                 <div class="panel-heading">
-                  <h4>{{plant.comName}}</h4>
+                  <h4>{{plant.sciName}}</h4>
                 </div>
               </a>
               <!-- Set up bodys of panels-->
@@ -20,19 +24,19 @@
                 <div class="panel panel-body text-justify top-padding">
                   <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
                   <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
-                  <p><strong>Description:</strong> {{plant.description}}</p>
+                  <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
                   <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
+                  <p>{{plant.selected}}</p>
                 </div>
               </div>
             </div>
           </div>
       </div>
   </div>
+  <button class="btn btn-primary" onclick="document.getElementById('overlay').style.display='block'">Show Compare</button>
+  <button class="btn btn-primary" (click)="unselect()">Clear Selected</button>
   <!-- Buttons for paging -->
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-    <li>
-      <button (click)="openNav()">Overlay</button>
-    </li>
     <li [ngClass]="{disabled:pager.currentPage === 1}">
         <a (click)="setPage(1)">First</a>
     </li>
@@ -59,23 +63,30 @@
   </ul>
 </div>
 
-<!-- The overlay -->
-<div *ngIf="overlay">
-  <div id="myNav" class="overlay">
-
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-
-    <!-- Overlay content -->
-    <div class="overlay-content">
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+<div id="overlay" class="modal">
+  <span onclick="document.getElementById('overlay').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+          <h3>Comparison</h3>
+      </div>
+      <div class="panel-body">
+        <div class="panel-group">
+          <div *ngFor="let plant of plants">
+            <div *ngIf="plant.selected">
+              <div class="panel-heading">
+                <h4>   </h4>
+              </div>
+              <div class="panel panel-body text-justify top-padding">
+                <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
+                <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
+                <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
+                <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-  </div>
+  </form>
 </div>
-
-<!-- Use any element to open/show the overlay navigation menu -->
-<!-- <span onclick="openNav()">open</span> -->

@@ -7,4 +7,5 @@ export class Plant {
     description: string;
     groupNumber: number;
     pageNumber: number;
+    selected: boolean;
 }

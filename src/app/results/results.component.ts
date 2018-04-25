@@ -15,7 +15,6 @@ export class ResultsComponent implements OnInit {
   pager: any = {};
   size = 10;
   currentPage = 1;
-  overlay = false;
 
   constructor(private results: ResultsService, private pagerService: PagerService) { }
 
@@ -23,7 +22,9 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     this.plants = this.results.getPlants();
     this.setPage(this.currentPage);
-    // this.size = 10;
+    this.plants.forEach(function(plant) {
+      plant.selected = false;
+    });
   }
 
   setPage(page: number) {
@@ -51,16 +52,10 @@ export class ResultsComponent implements OnInit {
     // get current page of items
     this.pagedPlants = this.plants.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
-  /* Open */
-  openNav() {
-    this.overlay = true;
-    document.getElementById('myNav').style.display = 'block';
-    console.log('opening nav');
-  }
 
-  /* Close */
-  closeNav() {
-    this.overlay = false;
-    document.getElementById('myNav').style.display = 'none';
+  unselect() {
+    this.plants.forEach(element => {
+      element.selected = false;
+    });
   }
 }
