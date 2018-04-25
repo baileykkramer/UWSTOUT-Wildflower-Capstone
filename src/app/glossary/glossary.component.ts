@@ -18,7 +18,6 @@ export class GlossaryComponent implements OnInit {
 
 
   constructor(private php: PHPService) {
-    console.log('constructor ran...');
   }
 
   ngOnInit() {
