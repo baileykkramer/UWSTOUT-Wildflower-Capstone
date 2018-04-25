@@ -66,7 +66,12 @@
           longer deals with three-digit.componet.ts -->
 
       <app-question-generate [codeNum]=finalNum></app-question-generate>
-      <button class="btn btn-primary" (click)="stepBack()">Back to Leaf Type</button>
+      <div *ngIf="stage === 6; else normal">
+        <button class="btn btn-primary" (click)="stepBack()">Reclassify</button>
+      </div>
+      <ng-template #normal>
+        <button class="btn btn-primary" (click)="stepBack()">Back to Leaf Type</button>
+      </ng-template>
     </div>
 
   </div>
