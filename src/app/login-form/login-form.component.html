@@ -1,13 +1,31 @@
-<form (submit)="loginUser($event)">
-  <div class="input">
-    <label>Username</label>
-    <input type="text">
+<html>
+
+<head></head>
+
+<body>
+  <h4> Please login to access site </h4>
+  <button id="zoomButton" onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+  <div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="modal-content animate" action="/action_page.php">
+      <!-- Thing inside the box -->
+      <form (submit)="loginUser($event)">
+        <div class="container">
+          <label for="username">
+            <b>Username</b>
+          </label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+          <label for="password">
+            <b>Password</b>
+          </label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+          <button id="loginButton" type="submit">Login</button>
+        </div>
+      </form>
+    </form>
   </div>
-  <div class="input">
-    <label>Password</label>
-    <input type="password">
-  </div>
-  <div class="input">
-    <input type="submit" value="Login">
-  </div>
-</form>
+
+</body>
+
+</html>

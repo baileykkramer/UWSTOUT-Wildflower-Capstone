@@ -69,7 +69,7 @@ export class ThreeDigitComponent implements OnInit {
          // This wil bring Goldenrod and Aster to a three digt number
         this.finalNum += num * 100;
         // Then bring the stage to 4 and exit
-        this.stage = 4;
+        this.stage = 5;
       }
       else
       {
@@ -211,6 +211,12 @@ export class ThreeDigitComponent implements OnInit {
       this.finalNum = Math.floor(this.finalNum);
       this.finalNum = this.finalNum * 10;
       this.stage--;
+      console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
+    }
+    // Deal with Goldenrod/Aster case
+    else if(this.stage === 6){
+      this.finalNum = 0;
+      this.stage = 1;
       console.log(' Code: ', this.finalNum, 'Stage:', this.stage);
     }
     else if(this.stage === 9){
