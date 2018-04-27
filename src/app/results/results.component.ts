@@ -15,16 +15,21 @@ export class ResultsComponent implements OnInit {
   pager: any = {};
   size = 10;
   currentPage = 1;
+  hasPlants = false;
 
   constructor(private results: ResultsService, private pagerService: PagerService) { }
 
   // getting the plants to display
   ngOnInit() {
     this.plants = this.results.getPlants();
-    this.setPage(this.currentPage);
-    this.plants.forEach(function(plant) {
-      plant.selected = false;
-    });
+    if (this.plants) {
+      this.hasPlants = true;
+      console.log(this.hasPlants);
+      this.setPage(this.currentPage);
+      this.plants.forEach(function(plant) {
+        plant.selected = false;
+      });
+    }
   }
 
   setPage(page: number) {
@@ -42,8 +47,8 @@ export class ResultsComponent implements OnInit {
     this.pagedPlants = this.plants.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 
-  select(event) {
-    this.size = Number(event.target.value);
+  select(num: number) {
+    this.size = Number(num);
     this.currentPage = 1;
 
     // get pager object from service
