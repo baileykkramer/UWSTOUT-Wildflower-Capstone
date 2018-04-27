@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class PlantSearchComponent implements OnInit {
   familyList = [
-    {'value': -1, 'name': 'Select a family'},
+    {'value': -1, 'name': 'Select a family...'},
     {'value': 1, 'name': 'Acanthus'},
     {'value': 2, 'name': 'Amaranth'},
     {'value': 3, 'name': 'Amaryllis'},
@@ -123,36 +123,36 @@ export class PlantSearchComponent implements OnInit {
   ];
   flowerType = 
   [
-    { type: 'Irregular Flowers', code: 1},
-    { type: '2 Regular Parts', code: 2},
-    { type: '3 Regular Parts', code: 3},
-    { type: '4 Regular Parts', code: 4},
-    { type: '5 Regular Parts', code: 5},
-    { type: '6 Regular Parts', code: 6},
-    { type: '7 or More Regular Parts', code: 7},
-    { type: 'Parts Indistinguishable', code: 8},
-    {type: 'Goldenrod (Solidago)', code: 9},
-    {type: 'Aster', code: 9.01},
-    {type: 'Not specified', code: -1},
+    {type: 'Not specified', code: -1, selected: true},
+    { type: 'Irregular Flowers', code: 1, selected: false},
+    { type: '2 Regular Parts', code: 2, selected: false},
+    { type: '3 Regular Parts', code: 3, selected: false},
+    { type: '4 Regular Parts', code: 4, selected: false},
+    { type: '5 Regular Parts', code: 5, selected: false},
+    { type: '6 Regular Parts', code: 6, selected: false},
+    { type: '7 or More Regular Parts', code: 7, selected: false},
+    { type: 'Parts Indistinguishable', code: 8, selected: false},
+    {type: 'Goldenrod (Solidago)', code: 9, selected: false},
+    {type: 'Aster', code: 9.01, selected: false}
   ];
   plantType = 
   [
-    {type: 'No Apparent Leaves', code: 1},
-    {type: 'Basal Leaves Only', code: 2},
-    {type: 'Alternate Leaves', code: 3},
-    {type: 'Opposite or Whorled Leaves', code: 4},
-    {type: 'Shrubs', code: 5},
-    {type: 'Vines', code: 6},
-    {type: 'Not specified', code: -1}
+    {type: 'Not specified', code: -1, selected: true},
+    {type: 'No Apparent Leaves', code: 1, selected: false},
+    {type: 'Basal Leaves Only', code: 2, selected: false},
+    {type: 'Alternate Leaves', code: 3, selected: false},
+    {type: 'Opposite or Whorled Leaves', code: 4, selected: false},
+    {type: 'Shrubs', code: 5, selected: false},
+    {type: 'Vines', code: 6, selected: false}
   ];
 
   leafType = 
   [
-    {type: 'No apparent Leaves', code: 1},
-    {type: 'Leaves Entire', code: 2},
-    {type: 'Leaves Toothed or Lobed', code: 3},
-    {type: 'Leaves Divided', code: 4},
-    {type: 'Not specified', code: -1}
+    {type: 'Not specified', code: -1, selected: true},
+    {type: 'No apparent Leaves', code: 1, selected: false},
+    {type: 'Leaves Entire', code: 2, selected: false},
+    {type: 'Leaves Toothed or Lobed', code: 3, selected: false},
+    {type: 'Leaves Divided', code: 4, selected: false}
   ];
   answers: Plant[]
   familyName: number
@@ -164,40 +164,65 @@ export class PlantSearchComponent implements OnInit {
   selectedFamily = this.familyList[0];
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
-
+  
   ngOnInit() {
+    //Set the variables to -1 initially
+    this.familyName = -1;
+    this.plantNum =-1;
+    this.flowerNum = -1;
+    this.leafNum = -1;
   }
 
   familyNameSelect(event){
     this.familyName = event.target.value
+    console.log(this.familyName)
   }
-  flowerNumSelect(event){
+  flowerNumSelect(event, i){
     this.flowerNum = event.target.value
     console.log(this.flowerNum)
+    //iterating through buttons to set to unclicked
+    this.flowerType.forEach(element => {
+      element.selected = false;
+    });
+    //set the clicked on one to true(selected)
+    this.flowerType[i].selected = true;
   }
-  plantNumSelect(event){
+  plantNumSelect(event, i){
     this.plantNum = event.target.value
     console.log(this.plantNum)
+    //iterating through buttons to set to unclicked
+    this.plantType.forEach(element => {
+      element.selected = false;
+    });
+    //set the clicked on one to true(selected)
+    this.plantType[i].selected = true;
   }
-  leafNumSelect(event){
+  leafNumSelect(event, i){
     this.leafNum = event.target.value
     console.log(this.leafNum)
+    //iterating through buttons to set to unclicked
+    this.leafType.forEach(element => {
+      element.selected = false;
+    });
+    //set the clicked on one to true(selected)
+    this.leafType[i].selected = true;
   }
 
   submit(sci:string, com:string) {
     this.sciName = sci
     this.comName = com
     //console.log(this.sciName, this.comName)
+    console.log('sciName', this.sciName, 'comName', this.comName, 'familyName', this.familyName, 'flowerNum', this.flowerNum, 'plantNum', this.plantNum, 'leafNum', this.leafNum)
     this.php.plantSearch(this.sciName, this.comName, this.familyName, this.flowerNum, this.plantNum, this.leafNum).subscribe(
       (data) => {
         const answer = data.json();
         this.answers = answer;
       }, (err) => { console.log('Error', err); },
       () => {
+        this.results.setPlants(this.answers);
+        this.router.navigate(['results']);
       }
     );
-    this.results.setPlants(this.answers);
-    this.router.navigate(['results']);
   }
 
 }

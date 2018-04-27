@@ -24,6 +24,8 @@ export class PHPService {
 
   // makes call to php endpoint to get plant results based on family name
   public plantSearch(sciName: string, comName: string, familyName: number, flowerNum: number, plantNum: number, leafNum: number) {
+    console.log('sciName', sciName, 'comName', comName, 'familyName', familyName, 'flowerNum', flowerNum, 'plantNum', plantNum, 'leafNum', leafNum)
+
     return this.http.post('http://144.13.22.48/WildFlowers/plant_search.php', {'sciName' : sciName, 'comName' : comName, 'familyName' : familyName, 
                                                                                 'flowerNum' : flowerNum, 'plantNum' : plantNum, 'leafNum' : leafNum});
   }
