@@ -18,3 +18,8 @@ h1 {
 .hidden-xs-inline{
     display: inline-block !important;
 }
+
+.btn {
+    white-space:normal;
+    display:inline-flex;
+}

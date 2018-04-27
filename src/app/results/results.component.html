@@ -10,48 +10,88 @@
             <!-- create a panel for the results -->
             <div class="panel panel-info top-padding">   
               <!--Set up Headings-->
-              <a data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">
                 <div class="panel-heading">
-                  <h4>{{plant.comName}}</h4>
+                  <button style="float: left; top:50%;" [ngClass]="plant.selected ? 'btn btn-primary' : 'btn btn-secondary'" (click)="plant.selected = !plant.selected">
+                      <span class="glyphicon glyphicon-duplicate"></span>
+                      <span class="hidden-xs">Compare</span>
+                  </button>
+                  <h4>
+                      <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">
+                      {{plant.sciName}}</a>
+                  </h4>
                 </div>
-              </a>
               <!-- Set up bodys of panels-->
               <div id="{{plant.plantId}}" class="panel-collapse collapse">
                 <div class="panel panel-body text-justify top-padding">
                   <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
                   <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
-                  <p><strong>Description:</strong> {{plant.description}}</p>
+                  <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
                   <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
+                  <p>{{plant.selected}}</p>
                 </div>
               </div>
             </div>
           </div>
       </div>
   </div>
+  <button class="btn btn-primary" onclick="document.getElementById('overlay').style.display='block'">Show Compare</button>
+  <button class="btn btn-primary" (click)="unselect()">Clear Selected</button>
+    
+  
   <!-- Buttons for paging -->
-  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-    <li [ngClass]="{disabled:pager.currentPage === 1}">
-        <a (click)="setPage(1)">First</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === 1}">
-        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-    </li>
-    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-        <a (click)="setPage(page)">{{page}}</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a (click)="setPage(pager.currentPage + 1)">Next</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a (click)="setPage(pager.totalPages)">Last</a>
-    </li>
-    <li>
-      <select (change)="select($event)">
-        <option value="5">5</option>
-        <option selected value="10">10</option>
-        <option value="20">20</option>
-        <option value="1500">Show All</option>
-      </select>
-    </li>
-  </ul>
+    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">First</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+      </li>
+      <li>
+        <select (change)="select($event)">
+          <option value="5">5</option>
+          <option selected value="10">10</option>
+          <option value="20">20</option>
+          <option value="1500">Show All</option>
+        </select>
+      </li>
+    </ul>
+    
+</div>
+
+<div id="overlay" class="modal">
+  <span onclick="document.getElementById('overlay').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+          <h3>Comparison</h3>
+      </div>
+      <div class="panel-body">
+        <div class="panel-group">
+          <div *ngFor="let plant of plants">
+            <div *ngIf="plant.selected">
+              <div class="panel panel-info top-padding">
+              <div class="panel-heading">
+                <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
+              </div>
+              <div class="panel panel-body text-justify">
+                <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
+                <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
+                <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

@@ -1,6 +1,6 @@
 <div *ngFor="let question of questions">
     <div *ngIf="question.text!==''">
-        <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(question.qNum, question.type, question.resultId)">{{ question.text }}</button>
+        <button class="btn btn-secondary btn-block btn-custom-btm-padding" style="white-space: normal;" (click)="select(question.qNum, question.type, question.resultId)">{{ question.text }}</button>
     </div>
 </div>
 <!-- This is to display the back button -->

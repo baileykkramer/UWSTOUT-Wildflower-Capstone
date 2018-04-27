@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { PHPService } from '../php-service.service';
 import { Term } from '../term';
 
@@ -12,9 +13,11 @@ declare var $: any;
 export class GlossaryComponent implements OnInit {
 
   terms: Term[];
+  filteredTerms: Term[];
+  pattern = '.*';
+
 
   constructor(private php: PHPService) {
-    console.log('constructor ran...');
   }
 
   ngOnInit() {
@@ -23,20 +26,25 @@ export class GlossaryComponent implements OnInit {
       (data) => {
         const returnedTerms = data.json();
         this.terms = returnedTerms;
+        this.filteredTerms = this.terms;
       }, (err) => { console.log('Error', err); },
       () => {
         console.log(this.terms);
       }
     );
+  }
 
-    // as characters are typed into the glossary Search input field items are filtered by looking at items belonging to the termItem class
-    $('#glossarySearchInput').on('keyup', function() {
-      const value = $(this).val().toLowerCase();
-        $('.termItem').filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        });
-      });
-
+  private filterList(inputValue: string) {
+    // populate the filteredTerms with terms that match input
+    this.filteredTerms = this.terms.filter(
+      term => (
+        // compares the word with the input and includes it if it contains
+        // what is in the input bar
+        term.word.match(new RegExp(inputValue.concat(this.pattern), 'i'))
+      )
+    );
+    // if there is nothing in the search bar show all terms
+    if (inputValue === '') { this.filteredTerms = this.terms; }
   }
 
 }

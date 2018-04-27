@@ -12,13 +12,13 @@
                             <label for="glossarySearchInput">
                                 <span class="glyphicon glyphicon-search"></span>Search:
                             </label>
-                            <input type="text" class="form-control" id="glossarySearchInput" placeholder="ex: umbel">
+                            <input #glossaryInput type="text" (keyup)="filterList(glossaryInput.value)" class="form-control" id="glossarySearchInput" placeholder="ex: umbel">
                         </div>
                     </form>
                 </div>
             </li>
             <!-- Loop for Terms -->
-            <li class="list-group-item termItem" *ngFor="let term of terms">
+            <li class="list-group-item termItem" *ngFor="let term of filteredTerms">
                 <h4 class="list-group-item-heading text-left">{{term.word}}:</h4>
                 <p class="list-group-item-text text-left">{{term.definition}}</p>
             </li>

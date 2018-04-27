@@ -22,7 +22,9 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     this.plants = this.results.getPlants();
     this.setPage(this.currentPage);
-    // this.size = 10;
+    this.plants.forEach(function(plant) {
+      plant.selected = false;
+    });
   }
 
   setPage(page: number) {
@@ -49,5 +51,11 @@ export class ResultsComponent implements OnInit {
 
     // get current page of items
     this.pagedPlants = this.plants.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+
+  unselect() {
+    this.plants.forEach(element => {
+      element.selected = false;
+    });
   }
 }
