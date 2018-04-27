@@ -212,16 +212,17 @@ export class PlantSearchComponent implements OnInit {
     this.sciName = sci
     this.comName = com
     //console.log(this.sciName, this.comName)
+    console.log('sciName', this.sciName, 'comName', this.comName, 'familyName', this.familyName, 'flowerNum', this.flowerNum, 'plantNum', this.plantNum, 'leafNum', this.leafNum)
     this.php.plantSearch(this.sciName, this.comName, this.familyName, this.flowerNum, this.plantNum, this.leafNum).subscribe(
       (data) => {
         const answer = data.json();
         this.answers = answer;
       }, (err) => { console.log('Error', err); },
       () => {
+        this.results.setPlants(this.answers);
+        this.router.navigate(['results']);
       }
     );
-    this.results.setPlants(this.answers);
-    this.router.navigate(['results']);
   }
 
 }
