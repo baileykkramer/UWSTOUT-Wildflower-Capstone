@@ -162,6 +162,7 @@ export class PlantSearchComponent implements OnInit {
   comName: string
   sciName: string
   selectedFamily = this.familyList[0];
+  defaults = false;
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
   
@@ -213,16 +214,22 @@ export class PlantSearchComponent implements OnInit {
     this.comName = com
     //console.log(this.sciName, this.comName)
     console.log('sciName', this.sciName, 'comName', this.comName, 'familyName', this.familyName, 'flowerNum', this.flowerNum, 'plantNum', this.plantNum, 'leafNum', this.leafNum)
-    this.php.plantSearch(this.sciName, this.comName, this.familyName, this.flowerNum, this.plantNum, this.leafNum).subscribe(
-      (data) => {
-        const answer = data.json();
-        this.answers = answer;
-      }, (err) => { console.log('Error', err); },
-      () => {
-        this.results.setPlants(this.answers);
-        this.router.navigate(['results']);
-      }
-    );
+    if(this.sciName == "" && this.comName == "" &&  this.familyName == -1 && this.flowerNum ==-1 && this.plantNum == -1 && this.leafNum ==-1){
+      this.defaults = true;
+    }
+    else{
+      this.defaults = false;
+      this.php.plantSearch(this.sciName, this.comName, this.familyName, this.flowerNum, this.plantNum, this.leafNum).subscribe(
+        (data) => {
+          const answer = data.json();
+          this.answers = answer;
+        }, (err) => { console.log('Error', err); },
+        () => {
+          this.results.setPlants(this.answers);
+          this.router.navigate(['results']);
+        }
+      );
+    }
   }
 
 }
