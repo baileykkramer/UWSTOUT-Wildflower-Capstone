@@ -16,12 +16,14 @@ export class ResultsComponent implements OnInit {
   size = 10;
   currentPage = 1;
   hasPlants = false;
+  whereFrom: number;
 
   constructor(private results: ResultsService, private pagerService: PagerService) { }
 
   // getting the plants to display
   ngOnInit() {
     this.plants = this.results.getPlants();
+    this.whereFrom = this.results.getWhereFrom();
     if (this.plants) {
       this.hasPlants = true;
       console.log(this.hasPlants);

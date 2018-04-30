@@ -117,7 +117,7 @@ export class QuestionGenerateComponent implements OnInit {
 
   // Go the the resutls page
   goToResults() {
-    this.results.setPlants(this.answers);
+    this.results.setPlants(this.answers, 0);
     this.router.navigate(['results']);
   }
 
