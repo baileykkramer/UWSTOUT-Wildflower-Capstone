@@ -29,7 +29,7 @@ export class Floral_Arrange implements OnInit {
   //
   QuestionOne =
     [
-      { type: '**Raceme**', code: 1 },
+      { type: 'Raceme', code: 1 },
       { type: 'Umbel', code: 0 },
       { type: 'Corymb', code: 0 },
       { type: 'Spike', code: 0 },
@@ -42,14 +42,14 @@ export class Floral_Arrange implements OnInit {
       { type: 'Head and Bract', code: 0 },
       { type: 'Raceme', code: 0 },
       { type: 'Pistil', code: 0 },
-      { type: '**Spike**', code: 1 },
+      { type: 'Spike', code: 1 },
     ];
 
   QuestionThree =
     [
       { type: 'Umbel', code: 0 },
       { type: 'Style', code: 0 },
-      { type: '**Panicle**', code: 1 },
+      { type: 'Panicle', code: 1 },
       { type: 'Bract and Head', code: 0 },
       { type: 'Spike', code: 0 },
     ];
@@ -57,7 +57,7 @@ export class Floral_Arrange implements OnInit {
   QuestionFour =
     [
       { type: 'Whorled', code: 0 },
-      { type: '**Cyme**', code: 1 },
+      { type: 'Cyme', code: 1 },
       { type: 'Bract and Head', code: 0 },
       { type: 'Spadix', code: 0 },
       { type: 'Umbel', code: 0 },
@@ -67,7 +67,7 @@ export class Floral_Arrange implements OnInit {
     [
       { type: 'Umbel', code: 0 },
       { type: 'Spathe', code: 0 },
-      { type: '**Corymb**', code: 1 },
+      { type: 'Corymb', code: 1 },
       { type: 'Pistil', code: 0 },
       { type: 'Cyme', code: 0 },
     ];
@@ -77,7 +77,7 @@ export class Floral_Arrange implements OnInit {
       { type: 'Aster', code: 0 },
       { type: 'Cyme', code: 0 },
       { type: 'Pistil', code: 0 },
-      { type: '**Umbel**', code: 1 },
+      { type: 'Umbel', code: 1 },
       { type: 'Spadix', code: 0 },
     ];
 
@@ -87,13 +87,13 @@ export class Floral_Arrange implements OnInit {
       { type: 'Spike', code: 0 },
       { type: 'Panicle', code: 0 },
       { type: 'Aster', code: 0 },
-      { type: '**Head and Bract**', code: 1 },
+      { type: 'Head and Bract', code: 1 },
     ];
 
   QuestionEight =
     [
       { type: 'Arum', code: 0 },
-      { type: '**Spadix**', code: 1 },
+      { type: 'Spadix', code: 1 },
       { type: 'Corymb', code: 0 },
       { type: 'Pistil', code: 0 },
       { type: 'Spathe', code: 0 },
@@ -101,7 +101,7 @@ export class Floral_Arrange implements OnInit {
 
   QuestionNine =
     [
-      { type: '**Spathe**', code: 1 },
+      { type: 'Spathe', code: 1 },
       { type: 'Petiole', code: 0 },
       { type: 'Raceme', code: 0 },
       { type: 'Cyme', code: 0 },
@@ -111,7 +111,7 @@ export class Floral_Arrange implements OnInit {
   QuestionTen =
     [
       { type: 'Calyx', code: 0 },
-      { type: '**Whorled**', code: 1 },
+      { type: 'Whorled', code: 1 },
       { type: 'Spathe', code: 0 },
       { type: 'Androecium', code: 0 },
       { type: 'Spadix', code: 0 },
