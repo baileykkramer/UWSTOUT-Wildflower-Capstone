@@ -167,7 +167,7 @@ export class Floral_Structure implements OnInit {
     this.anstype[this.stage] = string;
     this.stage++;
     this.instructions = 'Question ' + (this.stage + 1) + ' of 11';
-    console.log('Type: ', this.anstype[this.stage - 1], ' Code: ', this.answers[this.stage - 1], 'Stage:', this.stage);
+    // console.log('Type: ', this.anstype[this.stage - 1], ' Code: ', this.answers[this.stage - 1], 'Stage:', this.stage);
   }
 
 
