@@ -11,10 +11,10 @@
             <div class="panel panel-info top-padding">   
               <!--Set up Headings-->
                 <div class="panel-heading">
-                  <button style="float: left; top:50%;" [ngClass]="plant.selected ? 'btn btn-primary' : 'btn btn-secondary'" (click)="plant.selected = !plant.selected" [ngStyle]="{'padding-right': !plant.selected ? '27px' : '12px'}">
+                  <button style="float: left; top:50%;" [ngClass]="plant.selected ? 'btn btn-primary' : 'btn btn-secondary'" (click)="plant.selected = !plant.selected">
                       <span class="glyphicon glyphicon-duplicate"></span>
-                      <span *ngIf="!plant.selected" class="hidden-xs">Select</span>
-                      <span *ngIf="plant.selected" class="hidden-xs">Selected</span>
+                      <span *ngIf="!plant.selected" class="hidden-xs" style="padding-right: 27px">Select</span>
+                      <span *ngIf="plant.selected" class="hidden-xs" style="padding-right: 12px">Selected</span>
                   </button>
                   <h4>
                       <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">
@@ -45,14 +45,14 @@
     <!-- Buttons for paging -->
     <div class="row" style="padding-top: 10px; padding-bottom: 5px">
       <div class="btn-group">
-        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)">First</button>
-        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)">Previous</button>
+        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)"><<</button>
+        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)"><</button>
         <button *ngFor="let page of pager.pages" type="button" [ngClass]="pager.currentPage === page ? 'btn btn-primary' : 'btn btn-secondary'" (click)="setPage(page)">{{page}}</button>
-        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">Next</button>
-        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.totalPages)">Last</button>
+        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">></button>
+        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.totalPages)">>></button>
         <div class="btn-group dropup">
-          <button *ngIf="size !== 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Items Per Page: {{size}} <span class="caret"></span></button>
-          <button *ngIf="size === 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Items Per Page: Show All <span class="caret"></span></button>
+          <button *ngIf="size !== 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs">Items Per Page: </span>{{size}} <span class="caret"></span></button>
+          <button *ngIf="size === 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs">Items Per Page: </span>Show All <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu">
             <li><a (click)="select(5)">5</a></li>
             <li><a (click)="select(10)">10</a></li>
