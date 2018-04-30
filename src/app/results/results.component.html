@@ -34,7 +34,9 @@
             </div>
           </div>
           <div *ngIf="!hasPlants">
-            <p>Error: No plants exist in the selected query</p>
+            <div class="alert alert-danger fade in">
+                <strong>Error:</strong> No plants exist in the selected query.
+            </div>
           </div>
       </div>
   </div>

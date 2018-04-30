@@ -1,2 +1,518 @@
-<p>Floral structure
-</p>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <div class="panel panel-primary">
+        <!-- Set heading based on stage -->
+        <div class="panel-heading">
+            <div *ngIf="stage === 0">
+                <h3>{{stage1Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 1">
+                <h3>{{stage2Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 2">
+                <h3>{{stage3Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 3">
+                <h3>{{stage4Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 4">
+                <h3>{{stage5Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 5">
+                <h3>{{stage6Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 6">
+                <h3>{{stage7Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 7">
+                <h3>{{stage8Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 8">
+                <h3>{{stage9Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 9">
+                <h3>{{stage10Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 10">
+                <h3>{{stage11Title}}</h3>
+                {{instructions}}
+            </div>
+            <div *ngIf="stage === 11">
+                <h3>{{stage12Title}}</h3>
+            </div>
+        </div>
+        <!-- Set up body of panel based on stage -->
+        <div class="panel panel-body text-center">
+
+            <!-- Start of Questions, Question 1-->
+            <div class="col-container">
+                <div *ngIf="stage === 0">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest1 of QuestionOne">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest1.code, quest1.type)">{{ quest1.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ1.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="col-container">
+                <div *ngIf="stage === 1">
+                    <div class="row align-items-center">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest2 of QuestionTwo">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest2.code, quest2.type)">{{ quest2.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ2.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="col-container">
+                <div *ngIf="stage === 2">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest3 of QuestionThree">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest3.code, quest3.type)">{{ quest3.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ3.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Four -->
+            <div class="col-container">
+                <div *ngIf="stage === 3">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest4 of QuestionFour">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest4.code, quest4.type)">{{ quest4.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ4.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Five -->
+            <div class="col-container">
+                <div *ngIf="stage === 4">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest5 of QuestionFive">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest5.code, quest5.type)">{{ quest5.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ5.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Six -->
+            <div class="col-container">
+                <div *ngIf="stage === 5">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest6 of QuestionSix">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest6.code, quest6.type)">{{ quest6.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ6.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Seven -->
+            <div class="col-container">
+                <div *ngIf="stage === 6">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest7 of QuestionSeven">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest7.code, quest7.type)">{{ quest7.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ7.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Eight -->
+            <div class="col-container">
+                <div *ngIf="stage === 7">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest8 of QuestionEight">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest8.code, quest8.type)">{{ quest8.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ8.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Nine -->
+            <div class="col-container">
+                <div *ngIf="stage === 8">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest9 of QuestionNine">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest9.code, quest9.type)">{{ quest9.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ9.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="col-container">
+                <div *ngIf="stage === 9">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest10 of QuestionTen">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest10.code, quest10.type)">{{ quest10.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ10.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 11, Last Question -->
+            <div class="col-container">
+                <div *ngIf="stage === 10">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div *ngFor="let quest11 of QuestionEleven">
+                                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest11.code, quest11.type)">{{ quest11.type }}</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="img-responsive img-rounded left-block contain" src="assets/img/floral_struc/SQ11.jpg" alt="Examples of different floral arrangements arrangements"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Display results -->
+            <div *ngIf="stage === 11">
+                <!--Question One  -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage1Title}}</strong>
+                        </h3>
+
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[0]}}</p>
+                            <div *ngIf="answers[0] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[0].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[0] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage2Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[1]}}</p>
+                            <div *ngIf="answers[1] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+                                    <p>The correct answer is {{CorrectAnswer[1].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[1] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage3Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[2]}}</p>
+                            <div *ngIf="answers[2] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[2].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[2] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage4Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[3]}}</p>
+                            <div *ngIf="answers[3] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[3].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[3] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage5Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[4]}}</p>
+                            <div *ngIf="answers[4] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[4].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[4] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage6Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[5]}}</p>
+                            <div *ngIf="answers[5] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[5].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[5] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage7Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[6]}}</p>
+                            <div *ngIf="answers[6] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[6].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[6] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QuestionEight -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage8Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[7]}}</p>
+                            <div *ngIf="answers[7] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[7].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[7] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Question 9 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage9Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[8]}}</p>
+                            <div *ngIf="answers[8] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[8].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[8] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>
+                            <strong>{{stage10Title}}</strong>
+                        </h3>
+                        <div class="panel-body text-justify">
+                            <p>Your Answer: {{anstype[9]}}</p>
+                            <div *ngIf="answers[9] === 0">
+
+                                <div class="alert alert-danger">
+                                    <strong></strong>
+
+                                    <p>The correct answer is {{CorrectAnswer[9].type}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="answers[9] === 1">
+                                <div class="alert alert-success">
+                                    <strong>Correct</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="stage !== 11">
+            <div class="row">
+                <div class="i-am-centered">
+                    <button type="button btn btn-secondary btn-block btn-custom-btm-padding" class="btn btn-info" data-toggle="collapse" data-target="#demo">Hint</button>
+                    <div id="demo" class="collapse">
+                        <p>{{Hint[stage].type}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
