@@ -27,13 +27,13 @@
       If stage is set to 0 none of the below code will run -->
     <div *ngIf="stage === 1">
       <div *ngFor="let flower of flowerType">
-        <button class="btn btn-secondary btn-block btn-custom-btm-padding" style="white-space: normal;" (click)="select(flower.code)">{{ flower.type }}</button>
+        <button class="button btn btn-secondary btn-block btn-custom-btm-padding" style="white-space: normal;" (click)="select(flower.code)">{{ flower.type }}</button>
       </div>
     </div>
     <div *ngIf="stage === 2">
       <!-- Stage 2 handles the plant type of the group code -->
       <div *ngFor="let plant of plantType">
-        <button class="btn btn-secondary btn-block btn-custom-btm-padding" style="white-space: normal;" (click)="select(plant.code)">{{ plant.type }}</button>
+        <button class="button btn btn-secondary btn-block btn-custom-btm-padding" style="white-space: normal;" (click)="select(plant.code)">{{ plant.type }}</button>
       </div>
     </div>
     <!-- Stage three handles the leaf type code. 
@@ -41,7 +41,7 @@
      And if the code has duplicates -->
     <div *ngIf="stage === 3">
       <div *ngFor="let leaf of leafType">
-        <button class="btn btn-secondary btn-block btn-custom-btm-padding" style="white-space: normal;" (click)="select(leaf.code)">{{ leaf.type }}</button>
+        <button class="button btn btn-secondary btn-block btn-custom-btm-padding" style="white-space: normal;" (click)="select(leaf.code)">{{ leaf.type }}</button>
         <!--Call Group Code Corrections Function -->
       </div>
     </div>
@@ -57,8 +57,8 @@
           <strong>Error:</strong> {{errorMsg}}</p>
       </div>
 
-      <button type="button" class="btn btn-primary" rounterLink="/classification" (click)="stepBack()">Back</button>
-      <button type="button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return to start</button>
+      <button type="button button" class="btn btn-primary" rounterLink="/classification" (click)="stepBack()">Back</button>
+      <button type=" button button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return to start</button>
     </div>
     <div *ngIf="stage > 3 && stage != 9">
       <!-- next component in the searching -->
@@ -67,10 +67,10 @@
 
       <app-question-generate [codeNum]=finalNum></app-question-generate>
       <div *ngIf="stage === 6; else normal">
-        <button class="btn btn-primary" (click)="stepBack()">Reclassify</button>
+        <button class=" btn btn-primary" (click)="stepBack()">Reclassify</button>
       </div>
       <ng-template #normal>
-        <button class="btn btn-primary" (click)="stepBack()">Back to Leaf Type</button>
+        <button class=" btn btn-primary" (click)="stepBack()">Back to Leaf Type</button>
       </ng-template>
     </div>
 
