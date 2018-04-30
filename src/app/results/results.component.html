@@ -17,8 +17,7 @@
                       <span *ngIf="plant.selected" class="hidden-xs" style="padding-right: 12px">Selected</span>
                   </button>
                   <h4>
-                      <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">
-                      {{plant.sciName}}</a>
+                      <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">{{plant.sciName}}</a>
                   </h4>
                 </div>
               <!-- Set up bodys of panels-->
@@ -50,9 +49,9 @@
     <div class="row" style="padding-top: 10px; padding-bottom: 5px">
       <div class="btn-group">
         <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)">
-          <<</button>
+          </button>
             <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)">
-              <</button>
+              </button>
                 <button *ngFor="let page of pager.pages" type="button" [ngClass]="pager.currentPage === page ? 'btn btn-primary' : 'btn btn-secondary'"
                   (click)="setPage(page)">{{page}}</button>
                 <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">></button>
@@ -90,7 +89,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 <!-- Modal -->
 <div id="overlay" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -99,14 +97,6 @@
       <div class="modal-header panel-heading">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Comparison</h4>
-=======
-<div id="overlay" class="modal">
-  <span onclick="document.getElementById('overlay').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3>Comparison</h3>
->>>>>>> b5a2698dbcb7e2db2d9f60ccdd1e765513dc8767
       </div>
       <div class="modal-body panel-body">
         <div class="panel-group">
