@@ -233,19 +233,9 @@
       </div>
 
       <!-- Question Nine -->
-      <div class="col-container">
-        <div *ngIf="stage === 8">
-          <div class="row">
-            <div class="col-xs-6">
-              <div *ngFor="let quest9 of QuestionNine">
-                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest9.code, quest9.type)">{{ quest9.type }}</button>
-              </div>
-            </div>
-            <div class="col-xs-3">
-              <img class="img-responsive img-rounded left-block contain" src="assets\img\raceme.png" alt="Examples of different floral arrangements arrangements"
-              />
-            </div>
-          </div>
+      <div *ngIf="stage === 8">
+        <div *ngFor="let quest9 of QuestionNine">
+          <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest9.code, quest9.type)">{{ quest9.type }}</button>
         </div>
       </div>
 
