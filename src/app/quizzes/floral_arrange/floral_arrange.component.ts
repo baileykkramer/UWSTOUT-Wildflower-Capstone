@@ -29,92 +29,106 @@ export class Floral_Arrange implements OnInit {
   //
   QuestionOne =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: '**Raceme**', code: 1 },
+      { type: 'Umbel', code: 0 },
+      { type: 'Corymb', code: 0 },
+      { type: 'Spike', code: 0 },
+      { type: 'Spadix', code: 0 },
     ];
 
   QuestionTwo =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Panicle', code: 0 },
+      { type: 'Head and Bract', code: 0 },
+      { type: 'Raceme', code: 0 },
+      { type: 'Pistil', code: 0 },
+      { type: '**Spike**', code: 1 },
     ];
 
   QuestionThree =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Umbel', code: 0 },
+      { type: 'Style', code: 0 },
+      { type: '**Panicle**', code: 1 },
+      { type: 'Bract and Head', code: 0 },
+      { type: 'Spike', code: 0 },
     ];
 
   QuestionFour =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Whorled', code: 0 },
+      { type: '**Cyme**', code: 1 },
+      { type: 'Bract and Head', code: 0 },
+      { type: 'Spadix', code: 0 },
+      { type: 'Umbel', code: 0 },
     ];
 
   QuestionFive =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Umbel', code: 0 },
+      { type: 'Spathe', code: 0 },
+      { type: '**Corymb**', code: 1 },
+      { type: 'Pistil', code: 0 },
+      { type: 'Cyme', code: 0 },
     ];
 
   QuestionSix =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Aster', code: 0 },
+      { type: 'Cyme', code: 0 },
+      { type: 'Pistil', code: 0 },
+      { type: '**Umbel**', code: 1 },
+      { type: 'Spadix', code: 0 },
     ];
 
   QuestionSeven =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Solidago', code: 0 },
+      { type: 'Spike', code: 0 },
+      { type: 'Panicle', code: 0 },
+      { type: 'Aster', code: 0 },
+      { type: '**Head and Bract**', code: 1 },
     ];
 
   QuestionEight =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Arum', code: 0 },
+      { type: '**Spadix**', code: 1 },
+      { type: 'Corymb', code: 0 },
+      { type: 'Pistil', code: 0 },
+      { type: 'Spathe', code: 0 },
     ];
 
   QuestionNine =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: '**Spathe**', code: 1 },
+      { type: 'Petiole', code: 0 },
+      { type: 'Raceme', code: 0 },
+      { type: 'Cyme', code: 0 },
+      { type: 'Whorled', code: 0 },
     ];
 
   QuestionTen =
     [
-      { type: 'Answer', code: 1 },
-      { type: 'Wrong Answer A', code: 0 },
-      { type: 'Wrong Answer B', code: 0 },
-      { type: 'Wrong Answer C', code: 0 },
-      { type: 'Wrong Answer D', code: 0 },
+      { type: 'Calyx', code: 0 },
+      { type: '**Whorled**', code: 1 },
+      { type: 'Spathe', code: 0 },
+      { type: 'Androecium', code: 0 },
+      { type: 'Spadix', code: 0 },
+    ];
+
+  CorrectAnswer =
+    [
+      { type: 'Raceme', code: 0 },
+      { type: 'Spike', code: 1 },
+      { type: 'Panicle', code: 2 },
+      { type: 'Cyme', code: 3 },
+      { type: 'Corymb', code: 4 },
+      { type: 'Umbel', code: 5 },
+      { type: 'Head and Bract', code: 6 },
+      { type: 'Spadix', code: 7 },
+      { type: 'Spathe', code: 8 },
+      { type: 'Whorled', code: 9 },
     ];
 
   constructor() { }
@@ -132,17 +146,5 @@ export class Floral_Arrange implements OnInit {
     console.log('Type: ', this.anstype[this.stage - 1], ' Code: ', this.answers[this.stage - 1], 'Stage:', this.stage);
   }
 
-  CorrectAnswer =
-    [
-      { type: 'Raceme', code: 0 },
-      { type: 'Correct 2', code: 1 },
-      { type: 'Correct 3', code: 2 },
-      { type: 'Correct 4', code: 3 },
-      { type: 'Correct 5', code: 4 },
-      { type: 'Correct 6', code: 5 },
-      { type: 'Correct 7', code: 6 },
-      { type: 'Correct 8', code: 7 },
-      { type: 'Correct 9', code: 8 },
-      { type: 'Correct 10', code: 9 },
-    ];
+
 }

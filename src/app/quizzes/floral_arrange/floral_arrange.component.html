@@ -13,6 +13,29 @@
       padding: 16px;
     }
   </style>
+
+  <style>
+    .button {
+      /* background-color: blue; */
+      border: none;
+      /* color: white; */
+      padding: 16px 32px;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      opacity: .9;
+      transition: 0.3s;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: 1
+    }
+  </style>
+
+
 </head>
 
 <body>
@@ -65,19 +88,18 @@
       </div>
     </div>
     <!-- Set up body of panel based on stage -->
-    <div class="panel-body">
+    <div class="panel panel-body text-center">
 
-      <!-- Start of Questions, question 1-->
+      <!-- Start of Questions, Question 1-->
       <div class="col-container">
         <div *ngIf="stage === 0">
-
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-6">
               <div *ngFor="let quest1 of QuestionOne">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest1.code, quest1.type)">{{ quest1.type }}</button>
-
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest1.code, quest1.type)">{{ quest1.type }}</button>
               </div>
             </div>
+            <div class="col-xs-1"></div>
             <div class="col-xs-3">
               <img class="img-responsive img-rounded left-block contain" src="assets\img\raceme.png" alt="Examples of different floral arrangements arrangements"
               />
@@ -89,13 +111,16 @@
       <!-- Question 2 -->
       <div class="col-container">
         <div *ngIf="stage === 1">
-          <div class="row">
-            <div class="col-xs-5">
+          <div class="row align-items-center">
+
+            <div class="col-xs-7">
               <div *ngFor="let quest2 of QuestionTwo">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest2.code, quest2.type)">{{ quest2.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest2.code, quest2.type)">{{ quest2.type }}</button>
               </div>
             </div>
-            <div class="col-xs-3">
+
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2">
               <img class="img-responsive img-rounded left-block contain" src="assets\spike.png" alt="Examples of different floral arrangements arrangements"
               />
             </div>
@@ -106,10 +131,10 @@
       <!-- Question 3 -->
       <div class="col-container">
         <div *ngIf="stage === 2">
-          <div class="row">
-            <div class="col-xs-5">
+          <div class="row-center">
+            <div class="col-xs-6">
               <div *ngFor="let quest3 of QuestionThree">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest3.code, quest3.type)">{{ quest3.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest3.code, quest3.type)">{{ quest3.type }}</button>
               </div>
             </div>
             <div class="col-xs-3">
@@ -124,12 +149,12 @@
       <div class="col-container">
         <div *ngIf="stage === 3">
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-6">
               <div *ngFor="let quest4 of QuestionFour">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest4.code, quest4.type)">{{ quest4.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest4.code, quest4.type)">{{ quest4.type }}</button>
               </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-4">
               <img class="img-responsive img-rounded left-block contain" src="assets\img\cyme.png" alt="Examples of different floral arrangements arrangements"
               />
             </div>
@@ -141,12 +166,12 @@
       <div class="col-container">
         <div *ngIf="stage === 4">
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-6">
               <div *ngFor="let quest5 of QuestionFive">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest5.code, quest5.type)">{{ quest5.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest5.code, quest5.type)">{{ quest5.type }}</button>
               </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-5">
               <img class="img-responsive img-rounded left-block contain" src="assets\img\corymb.png" alt="Examples of different floral arrangements arrangements"
               />
             </div>
@@ -158,12 +183,12 @@
       <div class="col-container">
         <div *ngIf="stage === 5">
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-6">
               <div *ngFor="let quest6 of QuestionSix">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest6.code, quest6.type)">{{ quest6.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest6.code, quest6.type)">{{ quest6.type }}</button>
               </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-6">
               <img class="img-responsive img-rounded left-block contain" src="assets\umbel.png" alt="Examples of different floral arrangements arrangements"
               />
             </div>
@@ -175,13 +200,14 @@
       <div class="col-container">
         <div *ngIf="stage === 6">
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-9">
               <div *ngFor="let quest7 of QuestionSeven">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest7.code, quest7.type)">{{ quest7.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest7.code, quest7.type)">{{ quest7.type }}</button>
               </div>
             </div>
+            <div class="col-xs-2"></div>
             <div class="col-xs-3">
-              <img class="img-responsive img-rounded left-block contain" src="assets\img\bract.png" alt="Examples of different floral arrangements arrangements"
+              <img class="img-responsive img-rounded left-block contain" src="assets\img\bract.svg.png" alt="Examples of different floral arrangements arrangements"
               />
             </div>
           </div>
@@ -192,11 +218,12 @@
       <div class="col-container">
         <div *ngIf="stage === 7">
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-6">
               <div *ngFor="let quest8 of QuestionEight">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest8.code, quest8.type)">{{ quest8.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest8.code, quest8.type)">{{ quest8.type }}</button>
               </div>
             </div>
+            <div class="col-xs-6"></div>
             <div class="col-xs-3">
               <img class="img-responsive img-rounded left-block contain" src="assets\img\spadix.png" alt="Examples of different floral arrangements arrangements"
               />
@@ -209,9 +236,9 @@
       <div class="col-container">
         <div *ngIf="stage === 8">
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-6">
               <div *ngFor="let quest9 of QuestionNine">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest9.code, quest9.type)">{{ quest9.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest9.code, quest9.type)">{{ quest9.type }}</button>
               </div>
             </div>
             <div class="col-xs-3">
@@ -226,11 +253,12 @@
       <div class="col-container">
         <div *ngIf="stage === 9">
           <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-7">
               <div *ngFor="let quest10 of QuestionTen">
-                <button class="btn btn-secondary btn-block btn-custom-btm-padding" (click)="select(quest10.code, quest10.type)">{{ quest10.type }}</button>
+                <button class="button btn btn-primary btn-block btn-custom-btm-padding" (click)="select(quest10.code, quest10.type)">{{ quest10.type }}</button>
               </div>
             </div>
+            <div class="col-xs-2"></div>
             <div class="col-xs-3">
               <img class="img-responsive img-rounded left-block contain" src="assets\img\Whorled.png" alt="Examples of different floral arrangements arrangements"
               />
@@ -274,7 +302,7 @@
               <strong>{{stage2Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[1]}}</p>
               <div *ngIf="answers[1] === 0">
 
                 <div class="alert alert-danger">
@@ -298,7 +326,7 @@
               <strong>{{stage3Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[2]}}</p>
               <div *ngIf="answers[2] === 0">
 
                 <div class="alert alert-danger">
@@ -323,7 +351,7 @@
               <strong>{{stage4Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[3]}}</p>
               <div *ngIf="answers[3] === 0">
 
                 <div class="alert alert-danger">
@@ -348,7 +376,7 @@
               <strong>{{stage5Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[4]}}</p>
               <div *ngIf="answers[4] === 0">
 
                 <div class="alert alert-danger">
@@ -374,7 +402,7 @@
               <strong>{{stage6Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[5]}}</p>
               <div *ngIf="answers[5] === 0">
 
                 <div class="alert alert-danger">
@@ -399,7 +427,7 @@
               <strong>{{stage7Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[6]}}</p>
               <div *ngIf="answers[6] === 0">
 
                 <div class="alert alert-danger">
@@ -424,7 +452,7 @@
               <strong>{{stage8Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[7]}}</p>
               <div *ngIf="answers[7] === 0">
 
                 <div class="alert alert-danger">
@@ -450,7 +478,7 @@
               <strong>{{stage9Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[8]}}</p>
               <div *ngIf="answers[8] === 0">
 
                 <div class="alert alert-danger">
@@ -475,7 +503,7 @@
               <strong>{{stage10Title}}</strong>
             </h3>
             <div class="panel-body text-justify">
-              <p>Your Answer: {{anstype[0]}}</p>
+              <p>Your Answer: {{anstype[9]}}</p>
               <div *ngIf="answers[9] === 0">
 
                 <div class="alert alert-danger">
