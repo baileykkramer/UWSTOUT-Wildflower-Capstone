@@ -3,31 +3,37 @@
     <h3>Wildflower Search</h3>
   </div>
   <div class="panel-body">
-      <form>
-          <table align="center">
-              <tr>
-                 <td><strong>Scientific Name:</strong><br>
-                    <input #sciName type="text" placeholder="Ex. Impatiens capensis" size = "30"><br></td>
-                 <td><strong>Common Name:</strong><br>
-                    <input #comName type="text" placeholder="Ex. Spotted Jewelweed" size = "30"><br></td> 
-                <td><strong>Family Search (Select One):</strong><br>
-                    <select (change)="familyNameSelect($event)">
-                        <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
-                    </select><br></td>
-              </tr>
-              <tr>
-                  <td>
-                        <strong>Flower Type (Select One):</strong><br>
-                  </td>
-                  <td>
-                        <strong>Plant Type (Select One):</strong><br>
-                  </td>
-                  <td>
-                        <strong>Leaf Type (Select One):</strong><br>
-                  </td>
-              </tr>
-              <tr>
-                 <td align = "left" valign="top">
+        <table align="center">
+            <tr>
+                <td><strong>Scientific Name:</strong>
+                    <div class="form-group">
+                        <input #sciName type="text" class="form-control" placeholder="Ex. Impatiens capensis" size = "30">
+                    </div></td>
+                <td><strong>Common Name:</strong>
+                    <div class="form-group">
+                        <input #comName type="text" class="form-control" placeholder="Ex. Spotted Jewelweed" size = "30">
+                    </div></td>
+                <td><strong>Family Name:</strong>
+                    <div class="form-group">
+                        <select class="form-control" (change)="familyNameSelect($event)">
+                            <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <strong>Flower Type (Select One):</strong>
+                </td>
+                <td>
+                        <strong>Plant Type (Select One):</strong>
+                </td>
+                <td>
+                        <strong>Leaf Type (Select One):</strong>
+                </td>
+            </tr>
+            <tr>
+                <!--<td align = "left" valign="top">
                     <div *ngFor="let flower of flowerType">
                         <input type="radio" name="flowerType" [value]="flower.code" checked (change)="flowerNumSelect($event)">{{flower.type}} <br>
                         <span class="checkmark"></span>
@@ -39,22 +45,27 @@
                 <td align = "left" valign="top">
                     <div *ngFor="let leaf of leafType">
                         <input type="radio" name="leafType" [value]="leaf.code" checked (change)="leafNumSelect($event)">{{leaf.type}} <br>
-                    </div></td>
-                <!--<td align = "left" valign="top">
-                    <div *ngFor="let flower of flowerType">
-                        <button class="btn btn-secondary btn-block btn-custom-btm-padding" name="flowerType" [value]="flower.code"(change)="flowerNumSelect($event)">{{ flower.type }}</button>
-                    </div></td>
-                 <td align = "left" valign="top">
-                    <div *ngFor="let plant of plantType">
-                            <button class="btn btn-secondary btn-block btn-custom-btm-padding" name="plantType" [value]="plant.code"(change)="plantNumSelect($event)">{{ plant.type }}</button>
+                    </div></td>-->
+                <td>
+                    <div *ngFor="let flower of flowerType, let i = index"> 
+                            <button [ngClass]="flower.selected ? 'btn btn-primary btn-block btn-custom-btm-padding' : 'btn btn-secondary btn-block btn-custom-btm-padding'" name="flowerType" [value]="flower.code"(click)="flowerNumSelect($event, i)">{{ flower.type }}</button>
+                        </div></td>
+                <td align = "left" valign="top">
+                    <div *ngFor="let plant of plantType, let i = index">
+                            <button [ngClass]="plant.selected ? 'btn btn-primary btn-block btn-custom-btm-padding' : 'btn btn-secondary btn-block btn-custom-btm-padding'" name="plantType" [value]="plant.code"(click)="plantNumSelect($event, i)">{{ plant.type }}</button>
                     </div></td>
                 <td align = "left" valign="top">
-                    <div *ngFor="let leaf of leafType">
-                            <button class="btn btn-secondary btn-block btn-custom-btm-padding" name="leafType" [value]="leaf.code"(change)="leafNumSelect($event)">{{ leaf.type }}</button>
-                    </div></td>-->
-              </tr>
-          </table>
-      </form> 
-  </div>
-  <button class="btn btn-primary" type="button" (click)="submit(sciName.value, comName.value)">Submit</button>      
+                    <div *ngFor="let leaf of leafType, let i = index">
+                            <button [ngClass]="leaf.selected ? 'btn btn-primary btn-block btn-custom-btm-padding' : 'btn btn-secondary btn-block btn-custom-btm-padding'" name="leafType" [value]="leaf.code"(click)="leafNumSelect($event, i)">{{ leaf.type }}</button>
+                    </div></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                     <button class="btn btn-primary" type="button" (click)="submit(sciName.value, comName.value)">Submit</button> 
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
   </div>

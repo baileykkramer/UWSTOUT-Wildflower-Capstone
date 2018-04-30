@@ -2,7 +2,7 @@
     <div class="panel-heading"><h3>The Key System and How It Works</h3></div>
     <div class="panel-body">
         <img class="img-rounded img-responsive center-block" src="assets/img/region-map.jpg" alt="map of northeastern and midwest USA">
-        <p class="text-justify">  
+        <p class="text-justify top-padding">  
                 Identification begins with answering five standard questions about 
                 your specimen. Your answers determine the plant group to which it 
                 belongs. You then refer to this plant group in the Locator Key, 
@@ -122,19 +122,69 @@
                 </div>
             </div>
         </div>
+
         <!--Locator Key Section -->
         <div class="panel panel-info">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="#locator-key-collapse">
-                    <h4>Using the Locator Key</h4>
+                <a data-toggle="collapse" href="#compare-collapse">
+                    <h4>Comparing Plant Results</h4>
                 </a>
             </div>
-            <div id="locator-key-collapse" class="panel-collapse collapse">
+            <div id="compare-collapse" class="panel-collapse collapse">
                 <div class="panel-body">
-                        <p class="text-justify">Next, you find your group number in the Locator Key, which begins after you select your group code. There your search is narrowed further, and you are sent to a page where your plant and those similar to it are described and illustrated. You then identify your specimen either by comparing it with the illustration**** and confirming your identification with the description, or vice versa. Remember the first sentence of each description distinguishes the plant from all others in its group.</p>
+                    <p class="text-justify">After providing answers about your specimen you will be presented with a list of possible plants. Sometimes this list can be rather long. You may wish to compare two or more plants with one another. In order to compare plants, click the <em>Select</em> button on all plants you wish to compare. </p>    
+                    <p class="text-justify">Note that after selecting the button, it should change its appearence to a darker blue color and will now say <em>Selected</em>. In order to unselect a plant simply click the <em>Selected</em> button for that plant again. If you wish to unselect all currently selected plants, click the <em>Clear Selected</em> button at the bottom of the page.</p>
+                    <p class="text-justify">After all desired plants are selected, scroll to the bottom of the page and select the <em>Compare Selected</em> button. You will then see an overlay with all of the desired plants. To leave, just click the <b>X</b> in the upper right corner. After leaving the overlay all selected plants will still be selected.</p>
+                    <div class="well">
+                        <div class="table-responsive">
+                            <div class="table" style="white-space: normal">
+                                <thead>
+                                    <tr>
+                                        <th>Button</th>
+                                        <th>Meaning and Use</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <button style="float: left; padding-left: 15px;" class="btn btn-secondary">
+                                                <span class="glyphicon glyphicon-duplicate"></span>
+                                                Select
+                                            </button>
+                                        </td>
+                                        <td class="text-justify">This button will appear to the left of each plant result. When the button appears like this, the plant will not be included in the comparison.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button style="float: left" class="btn btn-primary">
+                                                <span class="glyphicon glyphicon-duplicate"></span>
+                                                Selected
+                                            </button>
+                                        </td>
+                                        <td class="text-justify">
+                                            This button will appear to the left of each plant result. When the button appears like this, the plant will be included in the comparison.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button style="float: left;" class="btn btn-primary">Compare Selected</button>
+                                        </td>
+                                        <td class="text-justify">
+                                            This button will appear at the bottom of the results page. Click the button to compare all selected plants.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button style="float: left;" class="btn btn-primary">Clear Selected</button>
+                                        </td>
+                                        <td class="text-justify">This button will appear at the bottom of the results page. Click the button to unselect all previously selected plants.</td>
+                                    </tr>          
+                                </tbody>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
         </div>
         <!-- Notice about Goldenrods and Asters -->
         <div class="panel panel-info">
