@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { PHPService } from '../php-service.service';
+import { element } from 'protractor';
+import { Http } from '@angular/http';
+import { LIFECYCLE_HOOKS_VALUES } from '@angular/compiler/src/lifecycle_reflector';
+import { summaryFileName } from '@angular/compiler/src/aot/util';
 
 @Component({
   selector: 'app-login-form',
@@ -8,22 +13,10 @@ import { Router } from '@angular/router'
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  // constructor(private http: Http) { }
+
+  constructor(private php: PHPService, private router: Router) { }
 
   ngOnInit() {
   }
-
-  loginUser(e) {
-    e.preventDefault();
-    console.log(e);
-    var username = e.target.elements[0].value;
-    var password = e.target.elements[1].value;
-
-    if (username == 'admin' && password == 'admin') {
-      this.router.navigate(['classification']);
-    } else {
-      alert("Incorrect username or password")
-    }
-  }
-
 }

@@ -3,14 +3,15 @@
 <head></head>
 
 <body>
-  <h4> Please login to access site </h4>
+  <div id="welcome">
+    <p> Please login to access site </p>
+  </div>
   <button id="zoomButton" onclick="document.getElementById('id01').style.display='block'">Login</button>
-
   <div id="id01" class="modal">
     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     <form class="modal-content animate" action="/action_page.php">
-      <!-- Thing inside the box -->
-      <form (submit)="loginUser($event)">
+
+      <form action="http://144.13.22.48/WildFlowers/get_login.php" method="POST">
         <div class="container">
           <label for="username">
             <b>Username</b>
@@ -23,6 +24,8 @@
           <button id="loginButton" type="submit">Login</button>
         </div>
       </form>
+
+
     </form>
   </div>
 
