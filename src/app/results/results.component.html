@@ -5,89 +5,94 @@
   </div>
   <!-- body will contain a panel for each of the plant Results -->
   <div class="panel-body">
-      <div class="panel-group" id="results-accordion">
-          <div *ngFor="let plant of pagedPlants">
-            <!-- create a panel for the results -->
-            <div class="panel panel-info top-padding">   
-              <!--Set up Headings-->
-                <div class="panel-heading">
-                  <button style="float: left; top:50%;" [ngClass]="plant.selected ? 'btn btn-primary' : 'btn btn-secondary'" (click)="plant.selected = !plant.selected">
-                      <span class="glyphicon glyphicon-duplicate"></span>
-                      <span *ngIf="!plant.selected" class="hidden-xs" style="padding-right: 27px">Select</span>
-                      <span *ngIf="plant.selected" class="hidden-xs" style="padding-right: 12px">Selected</span>
-                  </button>
-                  <h4>
-                      <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">{{plant.sciName}}</a>
-                  </h4>
-                </div>
-              <!-- Set up bodys of panels-->
-              <div id="{{plant.plantId}}" class="panel-collapse collapse">
-                <div class="panel panel-body text-justify top-padding">
-                  <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
-                  <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
-                  <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
-                  <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
-                </div>
-              </div>
+    <div class="panel-group" id="results-accordion">
+      <div *ngFor="let plant of pagedPlants">
+        <!-- create a panel for the results -->
+        <div class="panel panel-info top-padding">
+          <!--Set up Headings-->
+          <div class="panel-heading">
+            <button style="float: left; top:50%;" [ngClass]="plant.selected ? 'btn btn-primary' : 'btn btn-secondary'" (click)="plant.selected = !plant.selected">
+              <span class="glyphicon glyphicon-duplicate"></span>
+              <span *ngIf="!plant.selected" class="hidden-xs" style="padding-right: 27px">Select</span>
+              <span *ngIf="plant.selected" class="hidden-xs" style="padding-right: 12px">Selected</span>
+            </button>
+            <h4>
+              <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">{{plant.sciName}}</a>
+            </h4>
+          </div>
+          <!-- Set up bodys of panels-->
+          <div id="{{plant.plantId}}" class="panel-collapse collapse">
+            <div class="panel panel-body text-justify top-padding">
+              <h4>
+                <strong>Scientific Name:</strong>
+                <em>{{plant.sciName}}</em>
+              </h4>
+              <h4>
+                <strong>Common Name:</strong> {{plant.comName}}</h4>
+              <p style="text-justify: left">
+                <strong>Description:</strong> {{plant.description}}</p>
+              <p>
+                <strong>Page Number:</strong> {{plant.pageNumber}}</p>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="!hasPlants">
-        <div class="alert alert-danger fade in">
-          <strong>Error:</strong> No plants exist in the selected query.
-        </div>
-        <button type=" button button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return to start</button>
-        <button type=" button button" class="btn btn-primary" routerLink="/plant_search" (click)="homeButton()">Go to Search</button>
-
-      </div>
     </div>
   </div>
+  <div *ngIf="!hasPlants">
+    <div class="alert alert-danger fade in">
+      <strong>Error:</strong> No plants exist in the selected query.
+    </div>
+    <button type=" button button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return to start</button>
+    <button type=" button button" class="btn btn-primary" routerLink="/plant_search" (click)="homeButton()">Go to Search</button>
 
-  <div *ngIf="hasPlants">
-    <!-- Buttons for paging -->
-    <div class="row" style="padding-top: 10px; padding-bottom: 5px">
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)">
-          </button>
-            <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)">
-              </button>
-                <button *ngFor="let page of pager.pages" type="button" [ngClass]="pager.currentPage === page ? 'btn btn-primary' : 'btn btn-secondary'"
-                  (click)="setPage(page)">{{page}}</button>
-                <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">></button>
-                <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.totalPages)">>></button>
-                <div class="btn-group dropup">
-                  <button *ngIf="size !== 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                    <span class="hidden-xs">Items Per Page: </span>{{size}}
-                    <span class="caret"></span>
-                  </button>
-                  <button *ngIf="size === 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                    <span class="hidden-xs">Items Per Page: </span>Show All
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li>
-                      <a (click)="select(5)">5</a>
-                    </li>
-                    <li>
-                      <a (click)="select(10)">10</a>
-                    </li>
-                    <li>
-                      <a (click)="select(20)">20</a>
-                    </li>
-                    <li>
-                      <a (click)="select(1500)">Show All</a>
-                    </li>
-                  </ul>
-                </div>
-      </div>
-    </div>
-    <div class="row" style="padding-top: 5px; padding-bottom: 10px">
-      <button class="btn btn-primary" data-toggle="modal" data-target="#overlay">Compare Selected</button>
-      <button class="btn btn-primary" (click)="unselect()">Clear Selected</button>
-    </div>
   </div>
 </div>
+
+<div *ngIf="hasPlants">
+  <!-- Buttons for paging -->
+  <div class="row" style="padding-top: 10px; padding-bottom: 5px">
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)">
+      </button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)">
+      </button>
+      <button *ngFor="let page of pager.pages" type="button" [ngClass]="pager.currentPage === page ? 'btn btn-primary' : 'btn btn-secondary'"
+        (click)="setPage(page)">{{page}}</button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">></button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.totalPages)">>></button>
+      <div class="btn-group dropup">
+        <button *ngIf="size !== 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+          <span class="hidden-xs">Items Per Page: </span>{{size}}
+          <span class="caret"></span>
+        </button>
+        <button *ngIf="size === 1500" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+          <span class="hidden-xs">Items Per Page: </span>Show All
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a (click)="select(5)">5</a>
+          </li>
+          <li>
+            <a (click)="select(10)">10</a>
+          </li>
+          <li>
+            <a (click)="select(20)">20</a>
+          </li>
+          <li>
+            <a (click)="select(1500)">Show All</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 5px; padding-bottom: 10px">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#overlay">Compare Selected</button>
+    <button class="btn btn-primary" (click)="unselect()">Clear Selected</button>
+  </div>
+</div>
+
 
 <!-- Modal -->
 <div id="overlay" class="modal fade" role="dialog">
@@ -117,7 +122,6 @@
                   <p>
                     <strong>Page Number:</strong> {{plant.pageNumber}}</p>
                 </div>
-              </div>
               </div>
             </div>
           </div>
