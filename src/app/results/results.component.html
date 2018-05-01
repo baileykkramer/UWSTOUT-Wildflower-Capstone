@@ -5,37 +5,30 @@
   </div>
   <!-- body will contain a panel for each of the plant Results -->
   <div class="panel-body">
-    <div class="panel-group" id="results-accordion">
-      <div *ngFor="let plant of pagedPlants">
-        <!-- create a panel for the results -->
-        <div class="panel panel-info top-padding">
-          <!--Set up Headings-->
-          <div class="panel-heading">
-            <button style="float: left; top:50%;" [ngClass]="plant.selected ? 'button btn btn-primary' : 'button btn btn-secondary'"
-              (click)="plant.selected = !plant.selected">
-              <span class="glyphicon glyphicon-duplicate"></span>
-              <span *ngIf="!plant.selected" class="hidden-xs" style="padding-right: 27px">Select</span>
-              <span *ngIf="plant.selected" class="hidden-xs" style="padding-right: 12px">Selected</span>
-            </button>
-            <h4>
-              <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">
-                {{plant.sciName}}</a>
-            </h4>
-          </div>
-          <!-- Set up bodys of panels-->
-          <div id="{{plant.plantId}}" class="panel-collapse collapse">
-            <div class="panel panel-body text-justify top-padding">
-              <h4>
-                <strong>Scientific Name:</strong>
-                <em>{{plant.sciName}}</em>
-              </h4>
-              <h4>
-                <strong>Common Name:</strong> {{plant.comName}}</h4>
-              <p style="text-justify: left">
-                <strong>Description:</strong> {{plant.description}}</p>
-              <p>
-                <strong>Page Number:</strong> {{plant.pageNumber}}</p>
-              <p>{{plant.selected}}</p>
+      <div class="panel-group" id="results-accordion">
+          <div *ngFor="let plant of pagedPlants">
+            <!-- create a panel for the results -->
+            <div class="panel panel-info top-padding">   
+              <!--Set up Headings-->
+                <div class="panel-heading">
+                  <button style="float: left; top:50%;" [ngClass]="plant.selected ? 'btn btn-primary' : 'btn btn-secondary'" (click)="plant.selected = !plant.selected">
+                      <span class="glyphicon glyphicon-duplicate"></span>
+                      <span *ngIf="!plant.selected" class="hidden-xs" style="padding-right: 27px">Select</span>
+                      <span *ngIf="plant.selected" class="hidden-xs" style="padding-right: 12px">Selected</span>
+                  </button>
+                  <h4>
+                      <a style="display: block;" data-toggle="collapse" data-parent="#results-accordion" href="#{{plant.plantId}}">{{plant.sciName}}</a>
+                  </h4>
+                </div>
+              <!-- Set up bodys of panels-->
+              <div id="{{plant.plantId}}" class="panel-collapse collapse">
+                <div class="panel panel-body text-justify top-padding">
+                  <h4><strong>Scientific Name:</strong> <em>{{plant.sciName}}</em></h4>
+                  <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
+                  <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
+                  <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -56,9 +49,9 @@
     <div class="row" style="padding-top: 10px; padding-bottom: 5px">
       <div class="btn-group">
         <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)">
-          <<</button>
+          </button>
             <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)">
-              <</button>
+              </button>
                 <button *ngFor="let page of pager.pages" type="button" [ngClass]="pager.currentPage === page ? 'btn btn-primary' : 'btn btn-secondary'"
                   (click)="setPage(page)">{{page}}</button>
                 <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">></button>
@@ -90,20 +83,22 @@
       </div>
     </div>
     <div class="row" style="padding-top: 5px; padding-bottom: 10px">
-      <button class="btn btn-primary" onclick="document.getElementById('overlay').style.display='block'">Compare Selected</button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#overlay">Compare Selected</button>
       <button class="btn btn-primary" (click)="unselect()">Clear Selected</button>
     </div>
   </div>
 </div>
 
-<div id="overlay" class="modal">
-  <span onclick="document.getElementById('overlay').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3>Comparison</h3>
+<!-- Modal -->
+<div id="overlay" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content panel panel-primary">
+      <div class="modal-header panel-heading">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Comparison</h4>
       </div>
-      <div class="panel-body">
+      <div class="modal-body panel-body">
         <div class="panel-group">
           <div *ngFor="let plant of plants">
             <div *ngIf="plant.selected">
@@ -123,10 +118,11 @@
                     <strong>Page Number:</strong> {{plant.pageNumber}}</p>
                 </div>
               </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </div>

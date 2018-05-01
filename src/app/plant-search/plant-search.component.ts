@@ -239,8 +239,7 @@ export class PlantSearchComponent implements OnInit {
           this.answers = answer;
         }, (err) => { console.log('Error', err); },
         () => {
-          //Send the response data to the results page for displaying to the user
-          this.results.setPlants(this.answers);
+          this.results.setPlants(this.answers, 0);
           this.router.navigate(['results']);
         }
       );
