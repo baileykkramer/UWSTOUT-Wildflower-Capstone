@@ -1,27 +1,38 @@
+<!-- Bootstrap primary panel class that surrounds the content-->
 <div class="panel panel-primary">
+   <!-- Bootstrap panel class that makes the header blue and white--> 
   <div class="panel-heading">
     <h3>Wildflower Search</h3>
   </div>
+  <!-- Bootstrap class that holds the white background cotent section of the main panel--> 
   <div class="panel-body">
+      <!-- Create a table and center in the panel--> 
         <table align="center">
             <tr>
+                <!-- Text field for taking in user input for the scientific name--> 
                 <td><strong>Scientific Name:</strong>
+                    <!-- form-group and form-control classes format the inputs to be wider with rounded corners--> 
                     <div class="form-group">
                         <input #sciName type="text" class="form-control" placeholder="Ex. Impatiens capensis" size = "30">
                     </div></td>
+                <!-- Text field for taking in user input for the common name--> 
                 <td><strong>Common Name:</strong>
                     <div class="form-group">
                         <input #comName type="text" class="form-control" placeholder="Ex. Spotted Jewelweed" size = "30">
                     </div></td>
+                <!-- Creates a drop down selection menu for the user to select a plant family--> 
                 <td><strong>Family Name:</strong>
                     <div class="form-group">
+                        <!-- On a new selection pass the new value to the family name variable see .ts for more--> 
                         <select class="form-control" (change)="familyNameSelect($event)">
+                            <!-- Iterate through the familyList to fill the dropdown select menu--> 
                             <option *ngFor="let family of familyList" [value]="family.value">{{family.name}}</option>
                         </select>
                     </div>
                 </td>
             </tr>
             <tr>
+                <!-- Headers for the button groups--> 
                 <td>
                         <strong>Flower Type (Select One):</strong>
                 </td>
@@ -33,21 +44,13 @@
                 </td>
             </tr>
             <tr>
-                <!--<td align = "left" valign="top">
-                    <div *ngFor="let flower of flowerType">
-                        <input type="radio" name="flowerType" [value]="flower.code" checked (change)="flowerNumSelect($event)">{{flower.type}} <br>
-                        <span class="checkmark"></span>
-                    </div></td>
-                <td align = "left" valign="top">
-                    <div *ngFor="let plant of plantType">
-                        <input type="radio" name="plantType" [value]="plant.code" checked (change)="plantNumSelect($event)">{{plant.type}} <br>
-                    </div></td>
-                <td align = "left" valign="top">
-                    <div *ngFor="let leaf of leafType">
-                        <input type="radio" name="leafType" [value]="leaf.code" checked (change)="leafNumSelect($event)">{{leaf.type}} <br>
-                    </div></td>-->
                 <td>
+                    <!-- Iterate through the flowerType array and keep track of the index--> 
                     <div *ngFor="let flower of flowerType, let i = index"> 
+                            <!-- Using the iteration create buttons for the flower type. When a button is clicked send the value to the flowerNum variable 
+                                see .ts for more.
+                                Keep track of the selected class. When a button is clicked change the color and change the color of the old button. See .ts for more
+                             --> 
                             <button [ngClass]="flower.selected ? 'btn btn-primary btn-block btn-custom-btm-padding' : 'btn btn-secondary btn-block btn-custom-btm-padding'" name="flowerType" [value]="flower.code"(click)="flowerNumSelect($event, i)">{{ flower.type }}</button>
                         </div></td>
                 <td align = "left" valign="top">
@@ -62,11 +65,13 @@
             <tr>
                 <td></td>
                 <td>
-                     <button class="btn btn-primary" type="button" (click)="submit(sciName.value, comName.value)">Submit</button> 
+                    <!-- Submit button sends the input variables to the php-->  
+                    <button class="btn btn-primary" type="button" (click)="submit(sciName.value, comName.value)">Submit</button> 
                 </td>
                 <td></td>
             </tr>
         </table>
+        <!-- If no inputs are given alert the user and do not submit the page--> 
         <div *ngIf="defaults">
             <p class="alert alert-danger">Please input a search parameter.</p>
         </div>
