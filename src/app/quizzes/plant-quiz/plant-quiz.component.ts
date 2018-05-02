@@ -202,7 +202,7 @@ export class PlantQuizComponent implements OnInit {
   }
 
   select(event, index) {
-    this.answers[index] = event.target.value;
+    this.answers[index] = Number(event.target.value);
   }
 
   submit() {
