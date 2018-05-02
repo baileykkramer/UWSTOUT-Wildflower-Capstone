@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Plant } from '../../plant'
+import { Plant } from '../../plant';
 import { PHPService } from '../../php-service.service';
 
 @Component({
@@ -8,13 +8,13 @@ import { PHPService } from '../../php-service.service';
   styleUrls: ['./plant-quiz.component.css']
 })
 export class PlantQuizComponent implements OnInit {
-  plants: Plant[]
-  min: number
-  max: number
-  count: number
-  ids: number[]
-  results: number[]
-  answers: number[]
+  plants: Plant[];
+  min: number;
+  max: number;
+  count: number;
+  ids: number[];
+  results: number[];
+  answers: number[];
   familyList = [
     {'value': 0, 'name': 'Select a family'},
     {'value': 1, 'name': 'Acanthus'},
@@ -135,17 +135,17 @@ export class PlantQuizComponent implements OnInit {
     this.count = 6; // Number of plants to be shown for testing, can be set here to change it
 
     // Generate 4 valid id's
-    var i = 0;
-    var rand;
-    var dig1;
-    var dig2;
-    var dig3;
-    var dig4;
-    var isValid;
+    let i = 0;
+    let rand;
+    let dig1;
+    let dig2;
+    let dig3;
+    let dig4;
+    let isValid;
     // Current valid spread of values: 675-783, 894-1161, 2058-2505, 2585-2623
 
     // Generates random valid plantIds
-    while(i < this.count) {
+    while (i < this.count) {
       dig1 = Math.floor(10 * Math.random());
       dig2 = Math.floor(100 * Math.random());
       dig3 = Math.floor(1000 * Math.random());
@@ -166,8 +166,7 @@ export class PlantQuizComponent implements OnInit {
       if (rand >= 2585 && rand <= 2623) {
         isValid = true;
       }
-      if(isValid){
-        // console.log(rand)
+      if (isValid) {
         this.ids[i] = rand;
         i++;
       }
@@ -182,35 +181,34 @@ export class PlantQuizComponent implements OnInit {
         // Redirect to it has time to pull info from database
         this.fillPlants();
       }
-    )
+    );
   }
 
   // Fill plants[] with plant info
   fillPlants() {
     // Personal note: This is working inconsistantly, but actually works.
-    for (var i = 1; i < this.ids.length; i++) {
+    for (let i = 1; i < this.ids.length; i++) {
       // retrieve results based on ids
       this.php.getQuizPlants(this.ids[i]).subscribe(
         (data) => {
-          if (i !== 0){
+          if (i !== 0) {
             this.plants = this.plants.concat(data.json());
           }
         }, (err) => { console.log('Error', err); },
         () => {
         }
-      )
+      );
     }
   }
 
   select(event, index) {
-    // console.log(index);
-    this.answers[index] = event.target.value
+    this.answers[index] = event.target.value;
   }
 
   submit() {
-    for(var i = 0; i < this.plants.length; i++) {
+    for (let i = 0; i < this.plants.length; i++) {
       // Set results to 1 if correct, 2 if incorrect
-      if(this.answers[i] === this.plants[i].familyId) {
+      if (this.answers[i] === this.plants[i].familyId) {
         this.results[i] = 1;
       } else {
         this.results[i] = 2;

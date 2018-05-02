@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { PHPService } from '../php-service.service';
 import { Plant } from '../plant';
 import { ResultsService } from '../results/results.service';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plant-search',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./plant-search.component.css']
 })
 export class PlantSearchComponent implements OnInit {
-  //List of plant family names and values corresponding to the plant database
+  // List of plant family names and values corresponding to the plant database
   familyList = [
     {'value': -1, 'name': 'Select a family...'},
     {'value': 1, 'name': 'Acanthus'},
@@ -122,11 +122,10 @@ export class PlantSearchComponent implements OnInit {
     {'value': 103, 'name': 'Yam'},
     {'value': 104, 'name': 'Yellow-eyed Grass'},
   ];
-  //List of flower types and code corresponding to the plant database
+  // List of flower types and code corresponding to the plant database
   // and three digit key found in the guide
   // selected relates to which button is selected by the user at a given time
-  flowerType = 
-  [
+  flowerType = [
     {type: 'Not specified', code: -1, selected: true},
     { type: 'Irregular Flowers', code: 1, selected: false},
     { type: '2 Regular Parts', code: 2, selected: false},
@@ -139,11 +138,10 @@ export class PlantSearchComponent implements OnInit {
     {type: 'Goldenrod (Solidago)', code: 9, selected: false},
     {type: 'Aster', code: 9.01, selected: false}
   ];
-   //List of plant types and code corresponding to the plant database
+  // List of plant types and code corresponding to the plant database
   // and three digit key found in the guide
   // selected relates to which button is selected by the user at a given time
-  plantType = 
-  [
+  plantType = [
     {type: 'Not specified', code: -1, selected: true},
     {type: 'No Apparent Leaves', code: 1, selected: false},
     {type: 'Basal Leaves Only', code: 2, selected: false},
@@ -152,89 +150,87 @@ export class PlantSearchComponent implements OnInit {
     {type: 'Shrubs', code: 5, selected: false},
     {type: 'Vines', code: 6, selected: false}
   ];
- //List of leaf types and code corresponding to the plant database
+  // List of leaf types and code corresponding to the plant database
   // and three digit key found in the guide
   // selected relates to which button is selected by the user at a given time
-  leafType = 
-  [
+  leafType = [
     {type: 'Not specified', code: -1, selected: true},
     {type: 'No apparent Leaves', code: 1, selected: false},
     {type: 'Leaves Entire', code: 2, selected: false},
     {type: 'Leaves Toothed or Lobed', code: 3, selected: false},
     {type: 'Leaves Divided', code: 4, selected: false}
   ];
-  answers: Plant[]
-  familyName: number
-  plantNum: number
-  flowerNum: number
-  leafNum: number
-  comName: string
-  sciName: string
-  //Set the default for the family list to the first option
+  answers: Plant[];
+  familyName: number;
+  plantNum: number;
+  flowerNum: number;
+  leafNum: number;
+  comName: string;
+  sciName: string;
+  // Set the default for the family list to the first option
   selectedFamily = this.familyList[0];
   defaults = false;
 
   constructor(private php: PHPService, private results: ResultsService, private router: Router) { }
-  
+
   ngOnInit() {
-    //Set the variables to -1 as a defualt
+    // Set the variables to -1 as a defualt
     this.familyName = -1;
-    this.plantNum =-1;
+    this.plantNum = -1;
     this.flowerNum = -1;
     this.leafNum = -1;
   }
 
-  //Sets the familyName variable to the one selected by the user
-  familyNameSelect(event){
-    this.familyName = event.target.value
+  // Sets the familyName variable to the one selected by the user
+  familyNameSelect(event) {
+    this.familyName = event.target.value;
   }
-  //Sets the flowerNum variable to the one selected by the user
-  //Changes the button color based on selection by user
-  flowerNumSelect(event, i){
-    this.flowerNum = event.target.value
-    //iterating through buttons to set to unclicked
+  // Sets the flowerNum variable to the one selected by the user
+  // Changes the button color based on selection by user
+  flowerNumSelect(event, i) {
+    this.flowerNum = event.target.value;
+    // iterating through buttons to set to unclicked
     this.flowerType.forEach(element => {
       element.selected = false;
     });
-    //set the clicked on one to true(selected)
+    // set the clicked on one to true(selected)
     this.flowerType[i].selected = true;
   }
-  //Sets the plantNum variable to the one selected by the user
-  //Changes the button color based on selection by user
-  plantNumSelect(event, i){
-    this.plantNum = event.target.value
-    //iterating through buttons to set to unclicked
+  // Sets the plantNum variable to the one selected by the user
+  // Changes the button color based on selection by user
+  plantNumSelect(event, i) {
+    this.plantNum = event.target.value;
+    // iterating through buttons to set to unclicked
     this.plantType.forEach(element => {
       element.selected = false;
     });
-    //set the clicked on one to true(selected)
+    // set the clicked on one to true(selected)
     this.plantType[i].selected = true;
   }
-  //Sets the leafNum variable to the one selected by the user
-  //Changes the button color based on selection by user
-  leafNumSelect(event, i){
-    this.leafNum = event.target.value
-    //iterating through buttons to set to unclicked
+  // Sets the leafNum variable to the one selected by the user
+  // Changes the button color based on selection by user
+  leafNumSelect(event, i) {
+    this.leafNum = event.target.value;
+    // iterating through buttons to set to unclicked
     this.leafType.forEach(element => {
       element.selected = false;
     });
-    //set the clicked on one to true(selected)
+    // set the clicked on one to true(selected)
     this.leafType[i].selected = true;
   }
-  //Sends the user input to the php pages to query the plant database for matching results
-  submit(sci:string, com:string) {
-    this.sciName = sci
-    this.comName = com
-    //Check that the form is not empty
-    if(this.sciName == "" && this.comName == "" &&  this.familyName == -1 && this.flowerNum ==-1 && this.plantNum == -1 && this.leafNum ==-1){
+  // Sends the user input to the php pages to query the plant database for matching results
+  submit(sci: string, com: string) {
+    this.sciName = sci;
+    this.comName = com;
+    // Check that the form is not empty
+    if (this.sciName === '' && this.comName === '' &&  this.familyName === -1 && this.flowerNum === -1 && this.plantNum === -1 && this.leafNum === -1) {
       this.defaults = true;
-    }
-    else{
+    } else {
       this.defaults = false;
-      //If the form is not empty send the data to the php
+      // If the form is not empty send the data to the php
       this.php.plantSearch(this.sciName, this.comName, this.familyName, this.flowerNum, this.plantNum, this.leafNum).subscribe(
         (data) => {
-          //Collect the response from the php
+          // Collect the response from the php
           const answer = data.json();
           this.answers = answer;
         }, (err) => { console.log('Error', err); },

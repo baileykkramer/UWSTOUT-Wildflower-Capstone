@@ -14,7 +14,6 @@ import { Floral_Arrange } from './quizzes/floral_arrange/floral_arrange.componen
 import { PlantQuizComponent } from './quizzes/plant-quiz/plant-quiz.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/classification', pathMatch: 'full' },
   { path: '', component: LoginFormComponent },
   { path: 'classification', component: ClassificationComponent },
   { path: 'glossary', component: GlossaryComponent },

@@ -23,16 +23,10 @@
           <!-- Set up bodys of panels-->
           <div id="{{plant.plantId}}" class="panel-collapse collapse">
             <div class="panel panel-body text-justify top-padding">
-              <h4>
-                <strong>Scientific Name:</strong>
-                <em>{{plant.sciName}}</em>
-              </h4>
-              <h4>
-                <strong>Common Name:</strong> {{plant.comName}}</h4>
-              <p style="text-justify: left">
-                <strong>Description:</strong> {{plant.description}}</p>
-              <p>
-                <strong>Page Number:</strong> {{plant.pageNumber}}</p>
+              <h4><strong>Scientific Name:</strong><em>{{plant.sciName}}</em></h4>
+              <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
+              <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
+              <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
             </div>
           </div>
         </div>
@@ -50,12 +44,9 @@
   <!-- Buttons for paging -->
   <div class="row" style="padding-top: 10px; padding-bottom: 5px">
     <div class="btn-group">
-      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)">
-      </button>
-      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)">
-      </button>
-      <button *ngFor="let page of pager.pages" type="button" [ngClass]="pager.currentPage === page ? 'btn btn-primary' : 'btn btn-secondary'"
-        (click)="setPage(page)">{{page}}</button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(1)"><<</button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)"><</button>
+      <button *ngFor="let page of pager.pages" type="button" [ngClass]="pager.currentPage === page ? 'btn btn-primary' : 'btn btn-secondary'" (click)="setPage(page)">{{page}}</button>
       <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">></button>
       <button type="button" class="btn btn-secondary" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.totalPages)">>></button>
       <div class="btn-group dropup">
@@ -68,18 +59,10 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li>
-            <a (click)="select(5)">5</a>
-          </li>
-          <li>
-            <a (click)="select(10)">10</a>
-          </li>
-          <li>
-            <a (click)="select(20)">20</a>
-          </li>
-          <li>
-            <a (click)="select(1500)">Show All</a>
-          </li>
+          <li><a (click)="select(5)">5</a></li>
+          <li><a (click)="select(10)">10</a></li>
+          <li><a (click)="select(20)">20</a></li>
+          <li><a (click)="select(1500)">Show All</a></li>
         </ul>
       </div>
     </div>
@@ -108,18 +91,12 @@
             <div *ngIf="plant.selected">
               <div class="panel panel-info top-padding">
                 <div class="panel-heading">
-                  <h4>
-                    <strong>Scientific Name:</strong>
-                    <em>{{plant.sciName}}</em>
-                  </h4>
+                  <h4><strong>Scientific Name:</strong><em>{{plant.sciName}}</em></h4>
                 </div>
                 <div class="panel panel-body text-justify">
-                  <h4>
-                    <strong>Common Name:</strong> {{plant.comName}}</h4>
-                  <p style="text-justify: left">
-                    <strong>Description:</strong> {{plant.description}}</p>
-                  <p>
-                    <strong>Page Number:</strong> {{plant.pageNumber}}</p>
+                  <h4><strong>Common Name:</strong> {{plant.comName}}</h4>
+                  <p style="text-justify: left"><strong>Description:</strong> {{plant.description}}</p>
+                  <p><strong>Page Number:</strong> {{plant.pageNumber}}</p>
                 </div>
               </div>
             </div>

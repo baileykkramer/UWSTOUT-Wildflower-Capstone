@@ -21,7 +21,6 @@ export class GlossaryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ngOnInit ran...');
     this.php.getGlossary().subscribe(
       (data) => {
         const returnedTerms = data.json();
@@ -29,7 +28,6 @@ export class GlossaryComponent implements OnInit {
         this.filteredTerms = this.terms;
       }, (err) => { console.log('Error', err); },
       () => {
-        console.log(this.terms);
       }
     );
   }

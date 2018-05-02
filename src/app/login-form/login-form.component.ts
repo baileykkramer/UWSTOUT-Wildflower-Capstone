@@ -13,8 +13,6 @@ import { summaryFileName } from '@angular/compiler/src/aot/util';
 })
 export class LoginFormComponent implements OnInit {
 
-  // constructor(private http: Http) { }
-
   constructor(private php: PHPService, private router: Router) { }
 
   ngOnInit() {

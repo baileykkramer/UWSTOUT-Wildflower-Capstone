@@ -2,13 +2,7 @@
     margin-bottom: 5px;
 }
 .button{
-    /* background-color: gray; */
     border: none;
-    /* color: gray; */
-    /* padding: 16px 32px;
-    text-align: center;
-    font-size: 16px;
-    margin: 4px 2px; */
     opacity: 1;
     transition: 0.0s;
     display: inline-block;

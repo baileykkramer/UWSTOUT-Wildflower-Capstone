@@ -24,10 +24,8 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     this.plants = this.results.getPlants();
     this.whereFrom = this.results.getWhereFrom();
-    console.log(this.whereFrom);
     if (this.plants) {
       this.hasPlants = true;
-      console.log(this.hasPlants);
       this.setPage(this.currentPage);
       this.plants.forEach(function(plant) {
         plant.selected = false;
@@ -39,9 +37,7 @@ export class ResultsComponent implements OnInit {
     if (page < 1 || page > this.pager.totalPages) {
       page = 1;
     }
-
     this.currentPage = page;
-    console.log(this.size);
 
     // get pager object from service
     this.pager = this.pagerService.getPager(this.plants.length, page, this.size);

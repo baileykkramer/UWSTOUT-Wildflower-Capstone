@@ -31,22 +31,16 @@ export class QuestionGenerateComponent implements OnInit {
   generateButtons(qNum: number): void {
     // Update currentId to match the current one
     this.currentId = qNum;
-    console.log('In generate currentId');
-    console.log(this.currentId);
-    console.log('In generate setNum');
-    console.log(this.setNum);
 
     // retrieve all questions based on qNum
     this.php.getQuestions(qNum, this.setNum).subscribe(
       (data) => {
         const question = data.json();
         this.questions = question;
-        console.log(this.questions);
       }, (err) => { console.log('Error', err); },
       () => {
         this.setNum++;
         if (this.questions.length === 1) {
-          console.log('skipping');
           this.select(this.questions[0].qNum, this.questions[0].type, this.questions[0].resultId);
         }
       }
@@ -67,14 +61,10 @@ export class QuestionGenerateComponent implements OnInit {
           this.goToResults();
         }
       );
-    }
-    // Otherwise question should be another question
-    else if (type === 'Q') {
+    } else if (type === 'Q') { // Otherwise question should be another question
       // generate new buttons for page
       this.generateButtons(qNum);
-    }
-    // We shouldn't hit this, but I have it just incase
-    else {
+    } else { // We shouldn't hit this, but I have it just incase
       // Deal with error here :D
       console.log('Somehow hit a question without an answer type');
     }
@@ -87,7 +77,6 @@ export class QuestionGenerateComponent implements OnInit {
         const answer = data.json();
         this.multianswer = answer;
         this.maxCount = this.multianswer.length;
-        console.log(this.multianswer);
       }, (err) => { console.log('Error', err); },
       () => {
         this.currentResultsExtended(0, this.multianswer);
