@@ -24,6 +24,7 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     this.plants = this.results.getPlants();
     this.whereFrom = this.results.getWhereFrom();
+    console.log(this.whereFrom);
     if (this.plants) {
       this.hasPlants = true;
       console.log(this.hasPlants);

@@ -239,7 +239,7 @@ export class PlantSearchComponent implements OnInit {
           this.answers = answer;
         }, (err) => { console.log('Error', err); },
         () => {
-          this.results.setPlants(this.answers, 0);
+          this.results.setPlants(this.answers, 1);
           this.router.navigate(['results']);
         }
       );

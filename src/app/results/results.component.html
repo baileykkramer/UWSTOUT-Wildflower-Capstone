@@ -43,9 +43,6 @@
     <div class="alert alert-danger fade in">
       <strong>Error:</strong> No plants exist in the selected query.
     </div>
-    <button type=" button button" class="btn btn-primary" routerLink="/classification" (click)="homeButton()">Return to start</button>
-    <button type=" button button" class="btn btn-primary" routerLink="/plant_search" (click)="homeButton()">Go to Search</button>
-
   </div>
 </div>
 
@@ -90,6 +87,8 @@
   <div class="row" style="padding-top: 5px; padding-bottom: 10px">
     <button class="btn btn-primary" data-toggle="modal" data-target="#overlay">Compare Selected</button>
     <button class="btn btn-primary" (click)="unselect()">Clear Selected</button>
+    <button *ngIf="whereFrom === 0" type="button button" class="btn btn-primary" routerLink="/classification">Return to Start</button>
+    <button *ngIf="whereFrom === 1" type="button button" class="btn btn-primary" routerLink="/plant_search">Return to Search</button>
   </div>
 </div>
 

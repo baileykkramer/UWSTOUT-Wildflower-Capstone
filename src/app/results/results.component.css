@@ -36,77 +36,13 @@
     display: inline-block !important;
 }
 
-/* .modal { */
-	/* display: none; Hidden by default */
-	/* position: fixed; Stay in place */
-	/* z-index: 5; Sit on top */
-	/* left: 0; */
-	/* top: 0; */
-	/* width: 100%; Full width */
-	/* height: 100%; Full height */
-	/* overflow: auto; Enable scroll if needed */
-	/* background-color: rgb(0,0,0); Fallback color */
-	/* background-color: rgba(0,0,0,.4); Black w/ opacity */
-	/* padding-top: 30px;
-	margin-left:auto;
-  margin-right: auto;
-	margin-top: auto;
-} */
-
-/* Modal Content/Box */
-/* .modal-content {
-	background-color: #fefefe;
-	margin: 5px auto;
-	border: 1px solid #888;
-	width: 70%; 
-} */
-
-/* The Close Button */
-/* .close {
-	position: absolute;
-	right: 15.5%;
-	top: 5%; 
-	color: black;
-	font-size: 40px;
-	font-weight: bold;
-	z-index: 1;
-} */
-
-/* Close button on hover */
-/* .close:hover,
-.close:focus {
-	color: red;
-	cursor: pointer;
-} */
-
-/* Add Zoom Animation */
-/* .animate {
-	-webkit-animation: animatezoom 0.2s;
-	animation: animatezoom 0.2s
-}
-
-@-webkit-keyframes animatezoom {
-	from {-webkit-transform: scale(0)} 
-	to {-webkit-transform: scale(1)}
-}
-	
-@keyframes animatezoom {
-	from {transform: scale(0)} 
-	to {transform: scale(1)}
-} */
 .panel-title a {
 	display: block;
 	padding: 10px 15px;
 	margin: -10px -15px;
 }
 .button{
-	/* background-color: chartreuse; */
 	border: none;
-	/* color: magenta; */
-	/* padding: 16px 32px;
-	text-align: center;
-	font-size: 16px;
-	margin: 4px 2px; */
 	opacity: 1;
 	transition: 0.0s;
 	display: inline-block;
