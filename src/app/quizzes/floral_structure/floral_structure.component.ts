@@ -103,7 +103,7 @@ export class Floral_Structure implements OnInit {
     { type: 'Anther', code: 0 },
     { type: 'Receptacle', code: 0 },
     { type: 'Pedicel', code: 0 },
-    { type: '**Filament**', code: 1 },
+    { type: 'Filament', code: 1 },
     { type: 'Sepal', code: 0 },
   ];
 
