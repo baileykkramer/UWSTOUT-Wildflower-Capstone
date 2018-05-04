@@ -32,7 +32,7 @@ export class GlossaryComponent implements OnInit {
     );
   }
 
-  private filterList(inputValue: string) {
+  filterList(inputValue: string) {
     // populate the filteredTerms with terms that match input
     this.filteredTerms = this.terms.filter(
       term => (
